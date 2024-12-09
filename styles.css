@@ -568,6 +568,35 @@ td {
   margin-top: var(--spacing-3);
 }
 
+.filter-container {
+  display: flex;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+  margin: var(--spacing-4) 0;
+}
+
+.filter-btn {
+  background: var(--sunken);
+  color: var(--text);
+  border: none;
+  box-shadow: none;
+}
+
+.filter-btn:hover {
+  transform: none;
+  box-shadow: none;
+  background: var(--smoke);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.category-section.hidden {
+  display: none;
+}
+
 @media screen and (min-width: 32em) {
   .ultratitle {
     font-size: var(--font-5);

@@ -319,4 +319,34 @@ function renderPrograms() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', renderPrograms);
+function filterPrograms(category) {
+    const sections = document.querySelectorAll('.category-section');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.category === category);
+    });
+
+    if (category === 'all') {
+        sections.forEach(section => section.classList.remove('hidden'));
+        return;
+    }
+
+    sections.forEach(section => {
+        const sectionPrograms = section.querySelectorAll('.program-card');
+        const hasActivePrograms = Array.from(sectionPrograms)
+            .some(card => card.querySelector(`.status-${category}`));
+        
+        section.classList.toggle('hidden', !hasActivePrograms);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderPrograms();
+    
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            filterPrograms(button.dataset.category);
+        });
+    });
+});
