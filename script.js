@@ -136,7 +136,7 @@ const programs = {
             website: null,
             slack: "https://slack.com/archives/C07N06B1FDY",
             slackChannel: "#google-dev-ysws",
-            status: "active"
+            status: "upcoming"
         },
         {
             name: "Hack Store",
@@ -144,7 +144,7 @@ const programs = {
             website: null,
             slack: "https://slack.com/archives/C07BGFG6CDQ",
             slackChannel: "#hack-store",
-            status: "active"
+            status: "upcoming"
         },
         {
             name: "Docs",
@@ -152,7 +152,7 @@ const programs = {
             website: null,
             slack: "https://slack.com/archives/C07R7P3TT7W",
             slackChannel: "#docs-ysws",
-            status: "active"
+            status: "upcoming"
         },
         {
             name: "Draw Sticker Get Sticker",
@@ -160,7 +160,8 @@ const programs = {
             website: null,
             slack: "https://slack.com/archives/C07Q862TYLQ",
             slackChannel: "#draw-sticker-get-sticker",
-            status: "active"
+            status: "upcoming",
+            deadline: "Opens October 15th"
         },
         {
             name: "Light Up",
@@ -168,7 +169,7 @@ const programs = {
             website: null,
             slack: "https://slack.com/archives/C07RNEJ13LJ",
             slackChannel: "#lightup-ysws",
-            status: "active"
+            status: "upcoming"
         },
         {
             name: "Aether YSWS",
@@ -176,7 +177,7 @@ const programs = {
             website: null,
             slack: "https://slack.com/archives/C07V78URSGL",
             slackChannel: "#aether-ysws",
-            status: "active"
+            status: "upcoming"
         },
         {
             name: "Onward",
@@ -184,7 +185,7 @@ const programs = {
             website: null,
             slack: "https://slack.com/archives/C079G5MKC93",
             slackChannel: "#onward",
-            status: "active"
+            status: "upcoming"
         },
         {
             name: "Hack RTL",
@@ -192,7 +193,7 @@ const programs = {
             website: "https://hack-rtl.vercel.app/",
             slack: "https://slack.com/archives/C082S5V95G8",
             slackChannel: "#hack-rtl",
-            status: "active"
+            status: "upcoming"
         },
         {
             name: "Lab in a Box",
@@ -200,7 +201,7 @@ const programs = {
             website: null,
             slack: "https://slack.com/archives/C082G4HLZDK",
             slackChannel: "#lab-in-a-box",
-            status: "active"
+            status: "upcoming"
         }
     ],
     noYouShip: [
@@ -242,7 +243,7 @@ const programs = {
         {
             name: "Boba Manor",
             description: "Website building with rewards.",
-            website: null,
+            website: "https://manor.hackclub.com/",
             slack: "https://slack.com/archives/C06UJR8QW0M",
             slackChannel: "#boba",
             status: "completed"
