@@ -376,17 +376,49 @@ function filterPrograms(category) {
         btn.classList.toggle('active', btn.dataset.category === category);
     });
 
-    if (category === 'all') {
-        sections.forEach(section => section.classList.remove('hidden'));
-        return;
-    }
-
     sections.forEach(section => {
-        const sectionPrograms = section.querySelectorAll('.program-card');
-        const hasActivePrograms = Array.from(sectionPrograms)
-            .some(card => card.querySelector(`.status-${category}`));
+        const programCards = section.querySelectorAll('.program-card');
         
-        section.classList.toggle('hidden', !hasActivePrograms);
+        programCards.forEach(card => {
+            const statusElement = card.querySelector('.program-status');
+            const status = statusElement.textContent;
+            
+            if (category === 'all') {
+                card.classList.remove('hidden-by-filter');
+            } else {
+                card.classList.toggle('hidden-by-filter', status !== category);
+            }
+        });
+
+        const hasVisibleCards = Array.from(programCards)
+            .some(card => !card.classList.contains('hidden-by-filter') && 
+                         !card.classList.contains('hidden-by-search'));
+        section.classList.toggle('hidden', !hasVisibleCards);
+    });
+}
+
+function searchPrograms(searchTerm) {
+    const programCards = document.querySelectorAll('.program-card');
+    searchTerm = searchTerm.toLowerCase().trim();
+
+    programCards.forEach(card => {
+        const name = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        const slackChannel = card.querySelector('.program-links')?.textContent.toLowerCase() || '';
+        
+        const matches = name.includes(searchTerm) || 
+                       description.includes(searchTerm) || 
+                       slackChannel.includes(searchTerm);
+        
+        card.classList.toggle('hidden-by-search', !matches);
+    });
+
+    const sections = document.querySelectorAll('.category-section');
+    sections.forEach(section => {
+        const hasVisibleCards = Array.from(section.querySelectorAll('.program-card'))
+            .some(card => !card.classList.contains('hidden-by-filter') && 
+                         !card.classList.contains('hidden-by-search'));
+        section.classList.toggle('hidden', !hasVisibleCards);
     });
 }
 
@@ -409,30 +441,6 @@ function initializeTheme() {
         document.body.classList.add('dark-theme');
         toggleBtn.textContent = '☀️';
     }
-}
-
-function searchPrograms(searchTerm) {
-    const programCards = document.querySelectorAll('.program-card');
-    searchTerm = searchTerm.toLowerCase().trim();
-
-    programCards.forEach(card => {
-        const name = card.querySelector('h3').textContent.toLowerCase();
-        const description = card.querySelector('p').textContent.toLowerCase();
-        const slackChannel = card.querySelector('.program-links')?.textContent.toLowerCase() || '';
-        
-        const matches = name.includes(searchTerm) || 
-                       description.includes(searchTerm) || 
-                       slackChannel.includes(searchTerm);
-        
-        card.classList.toggle('hidden-by-search', !matches);
-    });
-
-    const sections = document.querySelectorAll('.category-section');
-    sections.forEach(section => {
-        const hasVisiblePrograms = Array.from(section.querySelectorAll('.program-card'))
-            .some(card => !card.classList.contains('hidden-by-search'));
-        section.classList.toggle('hidden', !hasVisiblePrograms);
-    });
 }
 
 function updateDeadlines() {

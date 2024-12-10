@@ -681,6 +681,11 @@ td {
   display: none;
 }
 
+.program-card.hidden-by-filter,
+.program-card.hidden-by-search {
+  display: none;
+}
+
 @media screen and (min-width: 32em) {
   .ultratitle {
     font-size: var(--font-5);
