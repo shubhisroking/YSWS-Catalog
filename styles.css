@@ -386,6 +386,7 @@ label.horizontal {
   margin: auto;
   padding-left: var(--spacing-3);
   padding-right: var(--spacing-3);
+  padding-top: var(--spacing-4);  /* Add this line */
 }
 
 h1 {
