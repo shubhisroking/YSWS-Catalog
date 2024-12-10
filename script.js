@@ -129,9 +129,7 @@ const programs = {
             slack: "https://slack.com/archives/C07N0VA3YGJ",
             slackChannel: "#vine-ysws",
             status: "upcoming"
-        }
-    ],
-    additional: [
+        },
         {
             name: "Google Dev YSWS",
             description: "Make an Android app and earn credits for a Google Developer account.",
