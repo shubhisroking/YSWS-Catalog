@@ -638,6 +638,32 @@ td {
   margin-bottom: var(--spacing-3);
 }
 
+.search-container {
+  margin: var(--spacing-3) 0;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 600px;
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-2);
+  border: 2px solid var(--border);
+  border-radius: var(--radii-default);
+  background: var(--elevated);
+  color: var(--text);
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.program-card.hidden-by-search {
+  display: none;
+}
+
 @media screen and (min-width: 32em) {
   .ultratitle {
     font-size: var(--font-5);

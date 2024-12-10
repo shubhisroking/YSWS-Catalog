@@ -371,12 +371,40 @@ function initializeTheme() {
     }
 }
 
+function searchPrograms(searchTerm) {
+    const programCards = document.querySelectorAll('.program-card');
+    searchTerm = searchTerm.toLowerCase().trim();
+
+    programCards.forEach(card => {
+        const name = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        const slackChannel = card.querySelector('.program-links')?.textContent.toLowerCase() || '';
+        
+        const matches = name.includes(searchTerm) || 
+                       description.includes(searchTerm) || 
+                       slackChannel.includes(searchTerm);
+        
+        card.classList.toggle('hidden-by-search', !matches);
+    });
+
+    const sections = document.querySelectorAll('.category-section');
+    sections.forEach(section => {
+        const hasVisiblePrograms = Array.from(section.querySelectorAll('.program-card'))
+            .some(card => !card.classList.contains('hidden-by-search'));
+        section.classList.toggle('hidden', !hasVisiblePrograms);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     renderPrograms();
+    
+    const searchInput = document.getElementById('program-search');
+    searchInput.addEventListener('input', (e) => searchPrograms(e.target.value));
     
     document.querySelectorAll('.filter-btn').forEach(button => {
         button.addEventListener('click', () => {
             filterPrograms(button.dataset.category);
+            searchPrograms(searchInput.value);
         });
     });
     
