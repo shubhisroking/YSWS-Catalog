@@ -303,8 +303,18 @@ function createProgramCard(program) {
     `;
 }
 
+function countActivePrograms() {
+    let count = 0;
+    Object.values(programs).forEach(category => {
+        count += category.filter(program => program.status === 'active').length;
+    });
+    return count;
+}
+
 function renderPrograms() {
     const container = document.getElementById('programs-container');
+    const activeCount = countActivePrograms();
+    document.getElementById('active-count').textContent = activeCount;
     
     for (const [category, programsList] of Object.entries(programs)) {
         const section = document.createElement('section');

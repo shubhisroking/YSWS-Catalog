@@ -630,6 +630,13 @@ td {
   display: none;
 }
 
+.active-count {
+  color: var(--primary);
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--spacing-2);
+  margin-bottom: var(--spacing-3);
+}
+
 @media screen and (min-width: 32em) {
   .ultratitle {
     font-size: var(--font-5);
