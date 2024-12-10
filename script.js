@@ -9,14 +9,6 @@ const programs = {
             status: "active"
         },
         {
-            name: "Blot",
-            description: "Write code, make art, and get a drawing machine.",
-            website: "https://blot.hackclub.com/",
-            slack: "https://slack.com/archives/C04GCH8A91D",
-            slackChannel: "#blot",
-            status: "ended"
-        },
-        {
             name: "OnBoard",
             description: "Design a PCB and receive a $100 grant.",
             website: "https://hackclub.com/onboard",
@@ -224,6 +216,14 @@ const programs = {
         }
     ],
     completed: [
+        {
+            name: "Blot",
+            description: "Write code, make art, and get a drawing machine.",
+            website: "https://blot.hackclub.com/",
+            slack: "https://slack.com/archives/C04GCH8A91D",
+            slackChannel: "#blot",
+            status: "completed"
+        },
         {
             name: "BrowserBuddy",
             description: "Build a Chrome extension, and Hack Club provides $30 to launch it on Chrome Web Store.",
