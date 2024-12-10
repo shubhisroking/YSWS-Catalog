@@ -65,7 +65,7 @@ const programs = {
             slack: "https://slack.com/archives/C083CCAAHM1",
             slackChannel: "#asylum",
             status: "active",
-            deadline: "Ends tomorrow"
+            deadline: "2024-12-11T23:59:59"
         },
         {
             name: "Pyramid Scheme",
@@ -74,16 +74,16 @@ const programs = {
             slack: "https://slack.com/archives/C07N1TCHY3T",
             slackChannel: "#pyramid-scheme",
             status: "active",
-            deadline: "Ends tomorrow"
+            deadline: "2024-12-11T23:59:59"
         },
         {
             name: "HackCraft",
-            description: "Create a Minecraft mod, and Hack Club sends you Minecraft Java! Ends January 31st, 2025.",
+            description: "Create a Minecraft mod, and Hack Club sends you Minecraft Java!",
             website: null,
             slack: "https://slack.com/archives/C07NQ5QAYNQ",
             slackChannel: "#mc-modding",
             status: "active",
-            deadline: "Ends January 31st, 2025"
+            deadline: "2025-01-31T23:59:59"
         },
         {
             name: "Cascade",
@@ -92,16 +92,16 @@ const programs = {
             slack: "https://slack.com/archives/C07QA8HD48N",
             slackChannel: "#cascade-ysws",
             status: "active",
-            deadline: "Ends Thursday"
+            deadline: "2024-12-14T23:59:59"
         },
         {
             name: "High Seas",
-            description: "Work on projects, earn doubloons, and compete in the Wonderdome. Winners get extra doubloons; losers still earn some.",
+            description: "Work on projects, earn doubloons, and compete in the Wonderdome.",
             website: "https://highseas.hackclub.com/",
             slack: "https://slack.com/archives/C07PZMBUNDS",
             slackChannel: "#high-seas",
             status: "active",
-            deadline: "Ends January 31st, 2025"
+            deadline: "2025-01-31T23:59:59"
         },
         {
             name: "Riceathon",
@@ -110,7 +110,7 @@ const programs = {
             slack: "https://slack.com/archives/C07MLF9A8H5",
             slackChannel: "#riceathon",
             status: "active",
-            deadline: "Ends January 10th, 2025"
+            deadline: "2025-01-10T23:59:59"
         }
     ],
     upcoming: [
@@ -285,7 +285,47 @@ const programs = {
     ]
 };
 
+function formatDeadline(deadlineStr) {
+    if (!deadlineStr) return '';
+    
+    const deadline = new Date(deadlineStr);
+    const now = new Date();
+    const diffTime = deadline - now;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    if (diffDays < 0) return 'Ended';
+    if (diffDays === 0) return 'Ends today';
+    if (diffDays === 1) return 'Ends tomorrow';
+    if (diffDays <= 7) return `${diffDays} days left`;
+    if (diffDays <= 30) {
+        const weeks = Math.floor(diffDays / 7);
+        return `${weeks} week${weeks > 1 ? 's' : ''} left`;
+    }
+    
+    return `Ends ${deadline.toLocaleDateString('en-US', { 
+        month: 'long', 
+        day: 'numeric',
+        year: deadline.getFullYear() !== new Date().getFullYear() ? 'numeric' : undefined
+    })}`;
+}
+
+function getDeadlineClass(deadlineStr) {
+    if (!deadlineStr) return '';
+    
+    const deadline = new Date(deadlineStr);
+    const now = new Date();
+    const diffTime = deadline - now;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    if (diffDays <= 2) return 'very-urgent';
+    if (diffDays <= 7) return 'urgent';
+    return '';
+}
+
 function createProgramCard(program) {
+    const deadlineText = formatDeadline(program.deadline);
+    const deadlineClass = getDeadlineClass(program.deadline);
+    
     return `
         <div class="card program-card">
             <div class="program-header">
@@ -293,7 +333,7 @@ function createProgramCard(program) {
                 <span class="program-status status-${program.status}">${program.status}</span>
             </div>
             <p>${program.description}</p>
-            ${program.deadline ? `<div class="program-deadline">Ends: ${program.deadline}</div>` : ''}
+            ${program.deadline ? `<div class="program-deadline ${deadlineClass}">${deadlineText}</div>` : ''}
             <div class="program-links">
                 ${program.website ? `<a href="${program.website}" target="_blank">Website</a>` : ''}
                 ${program.slack ? `<a href="${program.slack}" target="_blank">${program.slackChannel}</a>` : ''}
@@ -395,6 +435,25 @@ function searchPrograms(searchTerm) {
     });
 }
 
+function updateDeadlines() {
+    const deadlineElements = document.querySelectorAll('.program-deadline');
+    deadlineElements.forEach(element => {
+        const card = element.closest('.program-card');
+        const programName = card.querySelector('h3').textContent;
+        const program = Object.values(programs)
+            .flat()
+            .find(p => p.name === programName);
+            
+        if (program?.deadline) {
+            const deadlineText = formatDeadline(program.deadline);
+            const deadlineClass = getDeadlineClass(program.deadline);
+            
+            element.textContent = deadlineText;
+            element.className = `program-deadline ${deadlineClass}`;
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     renderPrograms();
     
@@ -410,4 +469,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     initializeTheme();
     document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    
+    setInterval(updateDeadlines, 60000);
 });
