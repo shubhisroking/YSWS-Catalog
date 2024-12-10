@@ -341,6 +341,27 @@ function filterPrograms(category) {
     });
 }
 
+function toggleTheme() {
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    const isDark = body.classList.toggle('dark-theme');
+    
+    toggleBtn.textContent = isDark ? '☀️' : '🌙';
+    
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const toggleBtn = document.getElementById('theme-toggle');
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-theme');
+        toggleBtn.textContent = '☀️';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     renderPrograms();
     
@@ -349,4 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
             filterPrograms(button.dataset.category);
         });
     });
+    
+    initializeTheme();
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 });

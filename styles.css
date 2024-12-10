@@ -84,6 +84,37 @@
   --shadow-card: 0 4px 8px rgba(0, 0, 0, 0.125);
   --shadow-elevated: 0 1px 2px rgba(0, 0, 0, 0.0625),
     0 8px 12px rgba(0, 0, 0, 0.125);
+
+  --dark-background: var(--darker);
+  --dark-text: var(--snow);
+  --dark-elevated: var(--dark);
+  --dark-border: var(--darkless);
+  --dark-sunken: var(--darkless);
+}
+
+.dark-theme {
+  --text: var(--dark-text);
+  --background: var(--dark-background);
+  --elevated: var(--dark-elevated);
+  --border: var(--dark-border);
+  --sunken: var(--dark-sunken);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+  padding: var(--spacing-2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  z-index: 1000;
 }
 
 body {
@@ -99,6 +130,8 @@ body {
   -webkit-font-smoothing: antialiased;
   color: var(--text);
   box-sizing: border-box;
+  background: var(--background);
+  transition: background-color 0.3s ease;
 }
 
 * {
