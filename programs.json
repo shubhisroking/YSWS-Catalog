@@ -217,6 +217,14 @@
     ],
     "completed": [
         {
+            "name": "Arcade",
+            "description": "The summer is yours for the making",
+            "website": "https://hackclub.com/arcade",
+            "slack": "https://hackclub.slack.com/archives/C06SBHMQU8G",
+            "slackChannel": "#hack-hour"
+            "status": "completed"
+        },
+        {
             "name": "Blot",
             "description": "Write code, make art, and get a drawing machine.",
             "website": "https://blot.hackclub.com/",
