@@ -10,7 +10,19 @@ async function loadPrograms() {
     }
 }
 
-function formatDeadline(deadlineStr) {
+function formatDeadline(deadlineStr, opensStr) {
+    if (opensStr) {
+        const opensDate = new Date(opensStr);
+        const now = new Date();
+        if (now < opensDate) {
+            return `Opens ${opensDate.toLocaleDateString('en-US', { 
+                month: 'long', 
+                day: 'numeric',
+                year: opensDate.getFullYear() !== new Date().getFullYear() ? 'numeric' : undefined
+            })}`;
+        }
+    }
+    
     if (!deadlineStr) return '';
     
     const deadline = new Date(deadlineStr);
@@ -48,23 +60,95 @@ function getDeadlineClass(deadlineStr) {
 }
 
 function createProgramCard(program) {
-    const deadlineText = formatDeadline(program.deadline);
+    const deadlineText = formatDeadline(program.deadline, program.opens);
     const deadlineClass = getDeadlineClass(program.deadline);
     
+    const opensClass = program.opens && new Date() < new Date(program.opens) ? 'opens-soon' : '';
+    
+    const encodedProgram = encodeURIComponent(JSON.stringify(program));
+    
     return `
-        <div class="card program-card">
+        <div class="card program-card ${opensClass}" data-program="${encodedProgram}">
             <div class="program-header">
                 <h3>${program.name}</h3>
                 <span class="program-status status-${program.status}">${program.status}</span>
             </div>
             <p>${program.description}</p>
-            ${program.deadline ? `<div class="program-deadline ${deadlineClass}">${deadlineText}</div>` : ''}
+            <div class="program-deadline ${deadlineClass}">${deadlineText}</div>
             <div class="program-links">
                 ${program.website ? `<a href="${program.website}" target="_blank">Website</a>` : ''}
                 ${program.slack ? `<a href="${program.slack}" target="_blank">${program.slackChannel}</a>` : ''}
             </div>
         </div>
     `;
+}
+
+function openModal(program) {
+    const modal = document.getElementById('program-modal');
+    const body = document.body;
+    
+    modal.querySelector('.title').textContent = program.name;
+    modal.querySelector('.program-status').className = `program-status status-${program.status}`;
+    modal.querySelector('.program-status').textContent = program.status;
+    
+    modal.querySelector('.program-description').textContent = 
+        program.detailedDescription || program.description;
+    
+    const deadlineElement = modal.querySelector('.program-deadline');
+    const deadlineText = formatDeadline(program.deadline, program.opens);
+    const deadlineClass = getDeadlineClass(program.deadline);
+    deadlineElement.className = `program-deadline ${deadlineClass}`;
+    deadlineElement.textContent = deadlineText;
+
+    const defaultSteps = [
+        program.website ? `Visit the <a href="${program.website}" target="_blank">program website</a>` : null,
+        program.slack ? `Join the discussion in <a href="${program.slack}" target="_blank">${program.slackChannel}</a>` : null
+    ].filter(Boolean);
+
+    const steps = program.steps || defaultSteps;
+    
+    modal.querySelector('.participation-steps').innerHTML = steps
+        .map((step, index) => `${index + 1}. ${step}`)
+        .join('<br>');
+    
+    const moreDetailsElement = modal.querySelector('.more-details');
+    let detailsHTML = '';
+    
+    if (program.requirements?.length) {
+        detailsHTML += `
+            <h3>Requirements</h3>
+            <ul>
+                ${program.requirements.map(req => `<li>${req}</li>`).join('')}
+            </ul>
+        `;
+    }
+    
+    if (program.details?.length) {
+        detailsHTML += `
+            <h3>Additional Details</h3>
+            <ul>
+                ${program.details.map(detail => `<li>${detail}</li>`).join('')}
+            </ul>
+        `;
+    }
+    
+    moreDetailsElement.innerHTML = detailsHTML;
+    
+    const links = [];
+    if (program.website) links.push(`<a href="${program.website}" target="_blank">Website</a>`);
+    if (program.slack) links.push(`<a href="${program.slack}" target="_blank">${program.slackChannel}</a>`);
+    modal.querySelector('.program-links').innerHTML = links.join(' | ');
+
+    modal.classList.add('active');
+    body.classList.add('modal-open');
+}
+
+function closeModal() {
+    const modal = document.getElementById('program-modal');
+    const body = document.body;
+    
+    modal.classList.remove('active');
+    body.classList.remove('modal-open');
 }
 
 function countActivePrograms() {
@@ -106,10 +190,16 @@ function filterPrograms(category) {
         
         programCards.forEach(card => {
             const statusElement = card.querySelector('.program-status');
+            const deadlineElement = card.querySelector('.program-deadline');
             const status = statusElement.textContent;
             
             if (category === 'all') {
                 card.classList.remove('hidden-by-filter');
+            } else if (category === 'ending-soon') {
+                const isEndingSoon = deadlineElement && 
+                    ['urgent', 'very-urgent'].some(cls => 
+                        deadlineElement.classList.contains(cls));
+                card.classList.toggle('hidden-by-filter', !isEndingSoon);
             } else {
                 card.classList.toggle('hidden-by-filter', status !== category);
             }
@@ -178,7 +268,7 @@ function updateDeadlines() {
             .find(p => p.name === programName);
             
         if (program?.deadline) {
-            const deadlineText = formatDeadline(program.deadline);
+            const deadlineText = formatDeadline(program.deadline, program.opens);
             const deadlineClass = getDeadlineClass(program.deadline);
             
             element.textContent = deadlineText;
@@ -203,5 +293,22 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
         
         setInterval(updateDeadlines, 60000);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.program-card')) {
+            const encodedProgram = e.target.closest('.program-card').dataset.program;
+            const program = JSON.parse(decodeURIComponent(encodedProgram));
+            openModal(program);
+        }
+        
+        if (e.target.closest('.modal-close') || 
+            (e.target.classList.contains('modal') && !e.target.closest('.modal-content'))) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
     });
 });

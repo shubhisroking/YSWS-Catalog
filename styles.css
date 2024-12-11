@@ -582,12 +582,23 @@ td {
   flex-direction: column;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid transparent;
+  cursor: pointer;
 }
 
 .program-card:hover {
   border-color: var(--primary);
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.program-card.opens-soon {
+  border: 2px dashed var(--blue);
+  background: linear-gradient(rgba(51, 142, 218, 0.05), rgba(51, 142, 218, 0.05));
+}
+
+.program-card.opens-soon .program-deadline {
+  color: var(--blue);
+  font-weight: var(--font-weight-bold);
 }
 
 .program-header {
@@ -603,12 +614,21 @@ td {
   border-radius: var(--radii-small);
   position: relative;
   overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  text-align: center;
+  height: 24px;
+  line-height: 1;
 }
 
 .status-active {
   background-color: var(--green);
   color: var(--white);
   animation: status-glow 2s ease-in-out infinite;
+  min-width: 55px;
+  font-size: 11px;
 }
 
 @keyframes status-glow {
@@ -763,6 +783,80 @@ td {
 .program-card.hidden-by-filter,
 .program-card.hidden-by-search {
   display: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    padding: var(--spacing-4);
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--spacing-3);
+    right: var(--spacing-3);
+    background: none;
+    border: none;
+    font-size: var(--font-4);
+    color: var(--text);
+    padding: var(--spacing-1);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-3);
+    padding-right: 40px;
+}
+
+.modal-body {
+    margin-top: var(--spacing-3);
+}
+
+.program-details {
+    margin-top: var(--spacing-4);
+}
+
+.participation-steps {
+    margin: var(--spacing-3) 0;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 @media screen and (min-width: 32em) {
