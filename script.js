@@ -93,6 +93,15 @@ function updateVisiblePrograms() {
         .map(card => JSON.parse(decodeURIComponent(card.dataset.program)));
 }
 
+function updatePositionIndicator() {
+    const positionElement = document.querySelector('.current-position');
+    if (visiblePrograms.length > 0) {
+        positionElement.textContent = `${currentProgramIndex + 1} of ${visiblePrograms.length}`;
+    } else {
+        positionElement.textContent = '';
+    }
+}
+
 function navigateModal(direction) {
     updateVisiblePrograms();
     
@@ -100,6 +109,7 @@ function navigateModal(direction) {
     
     currentProgramIndex = (currentProgramIndex + direction + visiblePrograms.length) % visiblePrograms.length;
     openModal(visiblePrograms[currentProgramIndex]);
+    updatePositionIndicator();
 }
 
 function openModal(program) {
@@ -161,6 +171,7 @@ function openModal(program) {
     if (program.slack) links.push(`<a href="${program.slack}" target="_blank">${program.slackChannel}</a>`);
     modal.querySelector('.program-links').innerHTML = links.join(' | ');
 
+    updatePositionIndicator();
     modal.classList.add('active');
     body.classList.add('modal-open');
 }

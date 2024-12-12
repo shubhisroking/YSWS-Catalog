@@ -995,3 +995,28 @@ body.modal-open {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+.program-position {
+    position: fixed;
+    top: var(--spacing-3);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--white);
+    font-size: var(--font-2);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-headline);
+    background: var(--slate);
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radii-circle);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1002;
+}
+
+.modal.active .program-position {
+    opacity: 0.9;
+}
+
+.program-position:hover {
+    opacity: 1;
+}
