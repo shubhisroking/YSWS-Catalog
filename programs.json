@@ -89,7 +89,7 @@
             "name": "HackCraft",
             "description": "Create a Minecraft mod, and Hack Club sends you Minecraft Java!",
             "website": "https://hackcraft.hackclub.com/",
-            "slack": "https://slack.com/archives/C07NQ5QAYNQ",
+            "slack": "https://hackclub.slack.com/archives/C07NQ5QAYNQ",
             "slackChannel": "#mc-modding",
             "status": "active",
             "deadline": "2025-01-31T23:59:59",
