@@ -83,7 +83,29 @@ function createProgramCard(program) {
     `;
 }
 
+let currentProgramIndex = 0;
+let visiblePrograms = [];
+
+function updateVisiblePrograms() {
+    visiblePrograms = Array.from(document.querySelectorAll('.program-card'))
+        .filter(card => !card.classList.contains('hidden-by-filter') && 
+                       !card.classList.contains('hidden-by-search'))
+        .map(card => JSON.parse(decodeURIComponent(card.dataset.program)));
+}
+
+function navigateModal(direction) {
+    updateVisiblePrograms();
+    
+    if (visiblePrograms.length === 0) return;
+    
+    currentProgramIndex = (currentProgramIndex + direction + visiblePrograms.length) % visiblePrograms.length;
+    openModal(visiblePrograms[currentProgramIndex]);
+}
+
 function openModal(program) {
+    updateVisiblePrograms();
+    currentProgramIndex = visiblePrograms.findIndex(p => p.name === program.name);
+    
     const modal = document.getElementById('program-modal');
     const body = document.body;
     
@@ -309,6 +331,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
+        if (!document.getElementById('program-modal').classList.contains('active')) return;
+        
+        switch(e.key) {
+            case 'Escape':
+                closeModal();
+                break;
+            case 'ArrowLeft':
+                navigateModal(-1);
+                break;
+            case 'ArrowRight':
+                navigateModal(1);
+                break;
+        }
     });
+
+    document.querySelector('.modal-prev').addEventListener('click', () => navigateModal(-1));
+    document.querySelector('.modal-next').addEventListener('click', () => navigateModal(1));
 });
