@@ -192,21 +192,76 @@ function countActivePrograms() {
     return count;
 }
 
+let currentSort = 'default';
+
+function sortPrograms(programs, sortType) {
+    const flattened = Object.entries(programs).flatMap(([category, progs]) => 
+        progs.map(p => ({...p, category}))
+    );
+
+    switch(sortType) {
+        case 'alphabetical':
+            return flattened.sort((a, b) => a.name.localeCompare(b.name));
+        case 'deadline':
+            return flattened.sort((a, b) => {
+                if (!a.deadline) return 1;
+                if (!b.deadline) return -1;
+                return new Date(a.deadline) - new Date(b.deadline);
+            });
+        case 'status':
+            const statusOrder = { active: 0, upcoming: 1, completed: 2 };
+            return flattened.sort((a, b) => statusOrder[a.status] - statusOrder[b.status]);
+        default:
+            return flattened;
+    }
+}
+
 function renderPrograms() {
     const container = document.getElementById('programs-container');
+    container.innerHTML = '';
     const activeCount = countActivePrograms();
     document.getElementById('active-count').textContent = activeCount;
     
-    for (const [category, programsList] of Object.entries(programs)) {
+    if (currentSort === 'default') {
+        for (const [category, programsList] of Object.entries(programs)) {
+            const section = document.createElement('section');
+            section.className = 'category-section';
+            section.innerHTML = `
+                <h2 class="headline">${category.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</h2>
+                <div class="programs-grid">
+                    ${programsList.map(program => createProgramCard(program)).join('')}
+                </div>
+            `;
+            container.appendChild(section);
+        }
+    } else {
+        const sortedPrograms = sortPrograms(programs, currentSort);
         const section = document.createElement('section');
         section.className = 'category-section';
         section.innerHTML = `
-            <h2 class="headline">${category.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</h2>
             <div class="programs-grid">
-                ${programsList.map(program => createProgramCard(program)).join('')}
+                ${sortedPrograms.map(program => createProgramCard(program)).join('')}
             </div>
         `;
         container.appendChild(section);
+    }
+}
+
+function updateSort(sortType) {
+    currentSort = sortType;
+    const buttons = document.querySelectorAll('.sort-btn');
+    buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.sort === sortType);
+    });
+    renderPrograms();
+    
+    const activeFilter = document.querySelector('.filter-btn.active');
+    if (activeFilter) {
+        filterPrograms(activeFilter.dataset.category);
+    }
+    const searchInput = document.getElementById('program-search');
+    if (searchInput.value) {
+        searchPrograms(searchInput.value);
     }
 }
 
@@ -326,6 +381,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
         
         setInterval(updateDeadlines, 60000);
+
+        document.querySelectorAll('.sort-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                updateSort(button.dataset.sort);
+            });
+        });
     });
 
     document.addEventListener('click', (e) => {

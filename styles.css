@@ -1020,3 +1020,40 @@ body.modal-open {
 .program-position:hover {
     opacity: 1;
 }
+
+.sort-container {
+    display: flex;
+    gap: var(--spacing-2);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-4);
+}
+
+.sort-btn {
+    background: var(--elevated);
+    color: var(--text);
+    border: 1px solid var(--border);
+    box-shadow: none;
+    transition: all 0.3s ease;
+    font-size: var(--font-1);
+    padding: var(--spacing-1) var(--spacing-2);
+}
+
+.sort-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+.sort-btn:hover {
+    transform: none;
+    box-shadow: none;
+    background: var(--smoke);
+}
+
+@media screen and (max-width: 48em) {
+    .filter-container,
+    .sort-container {
+        justify-content: center;
+        margin: var(--spacing-2) 0;
+    }
+}
