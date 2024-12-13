@@ -265,7 +265,7 @@
             "slackChannel": "#hackpad",
             "status": "completed",
             "ended": "Ended October 21st"
-        }
+        },
         {
             "name": "Retrospect",
             "description": "Create a DOS game and have it delivered on a floppy disk.",
@@ -309,6 +309,6 @@
             "slack": "https://hackclub.slack.com/archives/C01G6UJT2RM",
             "slackChannel": "#hamradio",
             "status": "completed"
-        },
+        }
     ]
 }
