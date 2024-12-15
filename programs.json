@@ -112,6 +112,15 @@
             "slackChannel": "#riceathon",
             "status": "active",
             "deadline": "2025-01-10T23:59:59"
+        },
+        {
+            "name": "Hacky Holidays",
+            "description": "Design a PCB holiday decoration this winter, get one shipped.",
+            "website": "https://hacky-holidays.hackclub.com/",
+            "slack": "https://hackclub.slack.com/archives/C083SK3G5D3",
+            "slackChannel": "#hacky-holidays",
+            "status": "active",
+            "deadline": "2025-1-15T23:59:59"
         }
     ],
     "upcoming": [
@@ -290,6 +299,15 @@
             "slackChannel": "#hackpad",
             "status": "completed",
             "ended": "Ended October 21st"
+        },
+        {
+            "name": "Trick or Trace",
+            "description": "Design a PCB this October, vote on the best designs, get a second grant.",
+            "website": "https://trickortrace.hackclub.com/",
+            "slack": "https://hackclub.slack.com/archives/C07QMQ26X4G",
+            "slackChannel": "#trick-or-trace",
+            "status": "completed",
+            "ended": "Ended October 22nd"
         }
     ]
 }
