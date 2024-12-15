@@ -24,11 +24,42 @@
         <div class="filter-container">
             <button class="filter-btn active" data-category="all">All</button>
             <button class="filter-btn" data-category="active">Active</button>
+            <button class="filter-btn" data-category="ending-soon">Ending Soon</button>
             <button class="filter-btn" data-category="upcoming">Upcoming</button>
             <button class="filter-btn" data-category="completed">Completed</button>
         </div>
 
+        <div class="sort-container">
+            <button class="sort-btn active" data-sort="default">By Category</button>
+            <button class="sort-btn" data-sort="alphabetical">A-Z</button>
+            <button class="sort-btn" data-sort="deadline">By Deadline</button>
+            <button class="sort-btn" data-sort="status">By Status</button>
+        </div>
+
         <div id="programs-container">
+        </div>
+        
+        <div id="program-modal" class="modal">
+            <div class="program-position"><span class="current-position"></span></div>
+            <button class="modal-nav modal-prev" aria-label="Previous program">←</button>
+            <button class="modal-nav modal-next" aria-label="Next program">→</button>
+            <div class="modal-content card">
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+                <div class="modal-header">
+                    <h2 class="title"></h2>
+                    <span class="program-status"></span>
+                </div>
+                <div class="modal-body">
+                    <p class="program-description"></p>
+                    <div class="program-deadline"></div>
+                    <div class="program-details">
+                        <h3>How to Participate</h3>
+                        <div class="participation-steps"></div>
+                        <div class="more-details"></div>
+                        <div class="program-links"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
