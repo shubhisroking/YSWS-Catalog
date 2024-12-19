@@ -12,14 +12,27 @@ async function loadPrograms() {
         const response = await fetch('data.yml').then(res => res.text());
         const rawPrograms = jsyaml.load(response);
         
+        const completed = [];
         programs = Object.fromEntries(
             Object.entries(rawPrograms).map(([category, programsList]) => [
                 category,
-                programsList.map(program => ({
-                    ...program,
-                    status: isEventEnded(program.deadline) ? 'completed' : program.status
-                }))
+                programsList.filter(program => {
+                    if (program.status === 'completed' || isEventEnded(program.deadline)) {
+                        completed.push({ ...program, status: 'completed' });
+                        return false;
+                    }
+                    return true;
+                })
             ])
+        );
+
+        delete programs['Completed'];
+        if (completed.length > 0) {
+            programs['Completed'] = completed;
+        }
+        
+        programs = Object.fromEntries(
+            Object.entries(programs).filter(([_, programsList]) => programsList.length > 0)
         );
         
         renderPrograms();
@@ -383,28 +396,29 @@ function initializeTheme() {
 
 function updateDeadlines() {
     const deadlineElements = document.querySelectorAll('.program-deadline');
+    let needsReload = false;
+    
     deadlineElements.forEach(element => {
         const card = element.closest('.program-card');
-        const programName = card.querySelector('h3').textContent;
-        const program = Object.values(programs)
-            .flat()
-            .find(p => p.name === programName);
-            
-        if (program?.deadline) {
-            if (isEventEnded(program.deadline) && program.status !== 'completed') {
-                program.status = 'completed';
-                const statusElement = card.querySelector('.program-status');
-                statusElement.className = 'program-status status-completed';
-                statusElement.textContent = 'completed';
+        const programData = JSON.parse(decodeURIComponent(card.dataset.program));
+        
+        if (programData?.deadline) {
+            if (isEventEnded(programData.deadline) && programData.status !== 'completed') {
+                needsReload = true;
+                return;
             }
             
-            const deadlineText = formatDeadline(program.deadline, program.opens);
-            const deadlineClass = getDeadlineClass(program.deadline);
+            const deadlineText = formatDeadline(programData.deadline, programData.opens);
+            const deadlineClass = getDeadlineClass(programData.deadline);
             
             element.textContent = deadlineText;
             element.className = `program-deadline ${deadlineClass}`;
         }
     });
+
+    if (needsReload) {
+        window.location.reload();
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
