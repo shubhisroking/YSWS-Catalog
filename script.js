@@ -1,9 +1,26 @@
 let programs = {};
 
+function isEventEnded(deadline) {
+    if (!deadline) return false;
+    const now = new Date();
+    const deadlineDate = new Date(deadline);
+    return now > deadlineDate;
+}
+
 async function loadPrograms() {
     try {
         const response = await fetch('data.yml').then(res => res.text());
-        programs = jsyaml.load(response);
+        const rawPrograms = jsyaml.load(response);
+        
+        programs = Object.fromEntries(
+            Object.entries(rawPrograms).map(([category, programsList]) => [
+                category,
+                programsList.map(program => ({
+                    ...program,
+                    status: isEventEnded(program.deadline) ? 'completed' : program.status
+                }))
+            ])
+        );
         
         renderPrograms();
     } catch (error) {
@@ -358,6 +375,13 @@ function updateDeadlines() {
             .find(p => p.name === programName);
             
         if (program?.deadline) {
+            if (isEventEnded(program.deadline) && program.status !== 'completed') {
+                program.status = 'completed';
+                const statusElement = card.querySelector('.program-status');
+                statusElement.className = 'program-status status-completed';
+                statusElement.textContent = 'completed';
+            }
+            
             const deadlineText = formatDeadline(program.deadline, program.opens);
             const deadlineClass = getDeadlineClass(program.deadline);
             
