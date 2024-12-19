@@ -646,6 +646,31 @@ td {
   color: var(--white);
 }
 
+.status-draft {
+    background-color: var(--yellow);
+    color: var(--black);
+    border: 1px dashed var(--text);
+    font-weight: var(--font-weight-bold);
+    background-size: 28.28px 28.28px;
+    animation: dash-animation 1s linear infinite;
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--yellow) 0,
+        var(--yellow) 10px,
+        var(--orange) 10px,
+        var(--orange) 20px
+    );
+}
+
+@keyframes dash-animation {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 28.28px 0;
+    }
+}
+
 .program-links {
   margin-top: var(--spacing-2);
   display: flex;

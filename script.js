@@ -211,7 +211,7 @@ function sortPrograms(programs, sortType) {
                 return new Date(a.deadline) - new Date(b.deadline);
             });
         case 'status':
-            const statusOrder = { active: 0, upcoming: 1, completed: 2 };
+            const statusOrder = { active: 0, draft: 1, completed: 2 };
             return flattened.sort((a, b) => statusOrder[a.status] - statusOrder[b.status]);
         default:
             return flattened;
