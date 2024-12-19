@@ -2,8 +2,9 @@ let programs = {};
 
 async function loadPrograms() {
     try {
-        const response = await fetch('programs.json');
-        programs = await response.json();
+        const response = await fetch('data.yml').then(res => res.text());
+        programs = jsyaml.load(response);
+        
         renderPrograms();
     } catch (error) {
         console.error('Error loading programs:', error);
