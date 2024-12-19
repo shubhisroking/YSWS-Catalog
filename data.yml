@@ -45,6 +45,12 @@ indefinite:
   slackChannel: "#anchor"
   status: active
 limitedTime:
+- name: Dessert
+  description: Make an Android app and earn a paid Google Developer account.
+  website: 
+  slack: https://hackclub.slack.com/archives/C07N06B1FDY
+  slackChannel: "#dessert"
+  status: active
 - name: High Seas
   description: Work on projects, earn doubloons, and compete in the Wonderdome.
   website: https://highseas.hackclub.com/
@@ -121,12 +127,6 @@ upcoming:
   website: https://vineysws.vercel.app/
   slack: https://hackclub.slack.com/archives/C07N0VA3YGJ
   slackChannel: "#vine-ysws"
-  status: upcoming
-- name: Google Dev YSWS
-  description: Make an Android app and earn credits for a Google Developer account.
-  website: 
-  slack: https://hackclub.slack.com/archives/C07N06B1FDY
-  slackChannel: "#google-dev-ysws"
   status: upcoming
 - name: Hack Store
   description: Use a free alternative app store and get a Google Developer account.
