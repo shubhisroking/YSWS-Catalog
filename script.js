@@ -78,6 +78,11 @@ function getDeadlineClass(deadlineStr) {
     return '';
 }
 
+function formatParticipants(count) {
+    if (count === undefined) return '';
+    return `${count.toLocaleString()} participant${count === 1 ? '' : 's'}`;
+}
+
 function createProgramCard(program) {
     const deadlineText = formatDeadline(program.deadline, program.opens);
     const deadlineClass = getDeadlineClass(program.deadline);
@@ -87,7 +92,7 @@ function createProgramCard(program) {
     const encodedProgram = encodeURIComponent(JSON.stringify(program));
     
     const participantsText = program.participants !== undefined ? 
-        `<div class="program-participants">${program.participants.toLocaleString()} participants</div>` : '';
+        `<div class="program-participants">${formatParticipants(program.participants)}</div>` : '';
     
     return `
         <div class="card program-card ${opensClass}" data-program="${encodedProgram}">
@@ -172,7 +177,7 @@ function openModal(program) {
     if (program.participants !== undefined) {
         detailsHTML += `
             <h3>Participation</h3>
-            <p>${program.participants.toLocaleString()} hackers participated</p>
+            <p>${formatParticipants(program.participants)}</p>
         `;
     }
     
