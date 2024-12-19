@@ -6,12 +6,14 @@ indefinite:
   slack: https://hackclub.slack.com/archives/C02UN35M7LG
   slackChannel: "#sprig"
   status: active
+  participants: 657
 - name: OnBoard
   description: Design a PCB and we'll fabricate it for you.
   website: https://hackclub.com/onboard
   slack: https://hackclub.slack.com/archives/C056AMWSFKJ
   slackChannel: "#electronics"
   status: active
+  participants: 604
 - name: OnBoard Live
   description: Design a PCB live on YouTube for $5/hour PCB credit.
   website: 
@@ -24,12 +26,14 @@ indefinite:
   slack: https://hackclub.slack.com/archives/C06UJR8QW0M
   slackChannel: "#boba"
   status: active
+  participants: 1253
 - name: Hackaccino
   description: Build a 3D website and get a free frappuccino.
   website: https://fraps.hackclub.com/
   slack: https://hackclub.slack.com/archives/C078DFVL5LZ
   slackChannel: "#fraps"
   status: active
+  participants: 362
 - name: Cider
   description: Create an iOS app and receive a $100 Apple Developer account to publish
     it.
@@ -37,6 +41,7 @@ indefinite:
   slack: https://hackclub.slack.com/archives/C073DTGENJ2
   slackChannel: "#cider"
   status: active
+  participants: 34
 - name: Anchor
   description: Design a VTuber-style logo for your High Seas project and receive custom
     stickers.
@@ -44,6 +49,7 @@ indefinite:
   slack: https://hackclub.slack.com/archives/C07V5401VMY
   slackChannel: "#anchor"
   status: active
+  participants: 26
 limitedTime:
 - name: Dessert
   description: Make an Android app and earn a paid Google Developer account.
@@ -58,6 +64,7 @@ limitedTime:
   slackChannel: "#high-seas"
   status: active
   deadline: '2025-01-31T23:59:59'
+  participants: 1119
 - name: Asylum
   description: Fast-paced hardware YSWS challenges.
   website: 
@@ -73,6 +80,7 @@ limitedTime:
   slackChannel: "#browser-buddy"
   status: active
   deadline: '2024-12-31T23:59:59'
+  participants: 22
 - name: HackCraft
   description: Create a Minecraft mod, and Hack Club sends you Minecraft Java!
   website: https://hackcraft.hackclub.com/
@@ -93,6 +101,7 @@ limitedTime:
   details:
   - Participants will receive a Minecraft Java Edition account upon successful submission.
   - Support is available through our Slack community.
+  participants: 4
 - name: Cascade
   description: Create animations with CSS and receive art supplies.
   website: https://cascade.hackclub.com/
@@ -100,6 +109,7 @@ limitedTime:
   slackChannel: "#cascade-ysws"
   status: active
   deadline: '2024-12-14T23:59:59'
+  participants: 55
 - name: Riceathon
   description: Customize your Linux install, and get programmer socks or a Blåhaj.
   website: https://github.com/HackClub/riceathon
@@ -107,6 +117,7 @@ limitedTime:
   slackChannel: "#riceathon"
   status: active
   deadline: '2025-01-10T23:59:59'
+  participants: 1
 - name: Hacky Holidays
   description: Design a PCB holiday decoration this winter, get one shipped.
   website: https://hacky-holidays.hackclub.com/
@@ -207,6 +218,7 @@ completed:
   slackChannel: "#blot"
   status: completed
   ended: Ended November 21st
+  participants: 192
 - name: Boba Manor
   description: Website building with rewards.
   website: https://manor.hackclub.com/
@@ -221,6 +233,7 @@ completed:
   slackChannel: "#hackpad"
   status: completed
   ended: Ended October 21st
+  participants: 16
 - name: Retrospect
   description: Create a DOS game and have it delivered on a floppy disk.
   website: https://retrospect.hackclub.com/
@@ -235,6 +248,7 @@ completed:
   slackChannel: "#llm / #zrl-land"
   status: completed
   ended: Ended October 1st
+  participants: 20
 - name: Arcade
   description: The summer is yours for the making
   website: https://hackclub.com/arcade
@@ -242,6 +256,7 @@ completed:
   slackChannel: "#hack-hour"
   status: completed
   ended: Ended September 31st
+  participants: 1229
 - name: The Bin
   description: Hardware-related projects.
   website: https://bin.hackclub.com/
@@ -249,12 +264,14 @@ completed:
   slackChannel: "#electronics"
   status: completed
   ended: Ended September 31st
+  participants: 277
 - name: HAM Radio YSWS
   description: Related to HAM radio projects.
   website: 
   slack: https://hackclub.slack.com/archives/C01G6UJT2RM
   slackChannel: "#hamradio"
   status: completed
+  participants: 14
 - name: Trick or Trace
   description: Design a PCB this October, vote on the best designs, get a second grant.
   website: https://trickortrace.hackclub.com/

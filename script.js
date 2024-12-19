@@ -1,9 +1,39 @@
 let programs = {};
 
+function isEventEnded(deadline) {
+    if (!deadline) return false;
+    const now = new Date();
+    const deadlineDate = new Date(deadline);
+    return now > deadlineDate;
+}
+
 async function loadPrograms() {
     try {
         const response = await fetch('data.yml').then(res => res.text());
-        programs = jsyaml.load(response);
+        const rawPrograms = jsyaml.load(response);
+        
+        const completed = [];
+        programs = Object.fromEntries(
+            Object.entries(rawPrograms).map(([category, programsList]) => [
+                category,
+                programsList.filter(program => {
+                    if (program.status === 'completed' || isEventEnded(program.deadline)) {
+                        completed.push({ ...program, status: 'completed' });
+                        return false;
+                    }
+                    return true;
+                })
+            ])
+        );
+
+        delete programs['Completed'];
+        if (completed.length > 0) {
+            programs['Completed'] = completed;
+        }
+        
+        programs = Object.fromEntries(
+            Object.entries(programs).filter(([_, programsList]) => programsList.length > 0)
+        );
         
         renderPrograms();
     } catch (error) {
@@ -61,6 +91,11 @@ function getDeadlineClass(deadlineStr) {
     return '';
 }
 
+function formatParticipants(count) {
+    if (count === undefined) return '';
+    return `${count.toLocaleString()} participant${count === 1 ? '' : 's'}`;
+}
+
 function createProgramCard(program) {
     const deadlineText = formatDeadline(program.deadline, program.opens);
     const deadlineClass = getDeadlineClass(program.deadline);
@@ -68,6 +103,9 @@ function createProgramCard(program) {
     const opensClass = program.opens && new Date() < new Date(program.opens) ? 'opens-soon' : '';
     
     const encodedProgram = encodeURIComponent(JSON.stringify(program));
+    
+    const participantsText = program.participants !== undefined ? 
+        `<div class="program-participants">${formatParticipants(program.participants)}</div>` : '';
     
     return `
         <div class="card program-card ${opensClass}" data-program="${encodedProgram}">
@@ -77,6 +115,7 @@ function createProgramCard(program) {
             </div>
             <p>${program.description}</p>
             <div class="program-deadline ${deadlineClass}">${deadlineText}</div>
+            ${participantsText}
             <div class="program-links">
                 ${program.website ? `<a href="${program.website}" target="_blank">Website</a>` : ''}
                 ${program.slack ? `<a href="${program.slack}" target="_blank">${program.slackChannel}</a>` : ''}
@@ -148,6 +187,13 @@ function openModal(program) {
     const moreDetailsElement = modal.querySelector('.more-details');
     let detailsHTML = '';
     
+    if (program.participants !== undefined) {
+        detailsHTML += `
+            <h3>Participation</h3>
+            <p>${formatParticipants(program.participants)}</p>
+        `;
+    }
+    
     if (program.requirements?.length) {
         detailsHTML += `
             <h3>Requirements</h3>
@@ -211,7 +257,7 @@ function sortPrograms(programs, sortType) {
                 return new Date(a.deadline) - new Date(b.deadline);
             });
         case 'status':
-            const statusOrder = { active: 0, upcoming: 1, completed: 2 };
+            const statusOrder = { active: 0, draft: 1, completed: 2 };
             return flattened.sort((a, b) => statusOrder[a.status] - statusOrder[b.status]);
         default:
             return flattened;
@@ -350,21 +396,29 @@ function initializeTheme() {
 
 function updateDeadlines() {
     const deadlineElements = document.querySelectorAll('.program-deadline');
+    let needsReload = false;
+    
     deadlineElements.forEach(element => {
         const card = element.closest('.program-card');
-        const programName = card.querySelector('h3').textContent;
-        const program = Object.values(programs)
-            .flat()
-            .find(p => p.name === programName);
+        const programData = JSON.parse(decodeURIComponent(card.dataset.program));
+        
+        if (programData?.deadline) {
+            if (isEventEnded(programData.deadline) && programData.status !== 'completed') {
+                needsReload = true;
+                return;
+            }
             
-        if (program?.deadline) {
-            const deadlineText = formatDeadline(program.deadline, program.opens);
-            const deadlineClass = getDeadlineClass(program.deadline);
+            const deadlineText = formatDeadline(programData.deadline, programData.opens);
+            const deadlineClass = getDeadlineClass(programData.deadline);
             
             element.textContent = deadlineText;
             element.className = `program-deadline ${deadlineClass}`;
         }
     });
+
+    if (needsReload) {
+        window.location.reload();
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
