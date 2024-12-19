@@ -113,39 +113,39 @@ limitedTime:
   slack: https://hackclub.slack.com/archives/C083SK3G5D3
   slackChannel: "#hacky-holidays"
   status: active
-upcoming:
   deadline: '2025-01-15T23:59:59'
+drafts:
 - name: Forge
   description: Design a 3D model that solves a problem and receive a custom 3D printer.
   website: https://forge.hackclub.com/
   slack: https://hackclub.slack.com/archives/C078GBDKC03
   slackChannel: "#forge-updates"
-  status: upcoming
+  status: draft
 - name: Vine YSWS
   description: Create a song using open-source music software and receive a vinyl
     with your song.
   website: https://vineysws.vercel.app/
   slack: https://hackclub.slack.com/archives/C07N0VA3YGJ
   slackChannel: "#vine-ysws"
-  status: upcoming
+  status: draft
 - name: Hack Store
   description: Use a free alternative app store and get a Google Developer account.
   website: https://www.hackstore.dev/
   slack: https://hackclub.slack.com/archives/C07BGFG6CDQ
   slackChannel: "#hack-store"
-  status: upcoming
+  status: draft
 - name: Docs
   description: Submit awesome documents, and Hack Club will print them into a book.
   website: 
   slack: https://hackclub.slack.com/archives/C07R7P3TT7W
   slackChannel: "#docs-ysws"
-  status: upcoming
+  status: draft
 - name: Draw Sticker Get Sticker
   description: Draw a sticker, and Hack Club will print and mail it to you.
   website: 
   slack: https://hackclub.slack.com/archives/C07Q862TYLQ
   slackChannel: "#draw-sticker-get-sticker"
-  status: upcoming
+  status: draft
   opens: Opens October 15th
 - name: Light Up
   description: Design an electronic circuit with lights, and Hack Club sends you the
@@ -153,32 +153,32 @@ upcoming:
   website: 
   slack: https://hackclub.slack.com/archives/C07RNEJ13LJ
   slackChannel: "#lightup-ysws"
-  status: upcoming
+  status: draft
 - name: Aether YSWS
   description: Build a Windows app, and Hack Club provides a Microsoft Store developer
     account.
   website: 
   slack: https://hackclub.slack.com/archives/C07V78URSGL
   slackChannel: "#aether-ysws"
-  status: upcoming
+  status: draft
 - name: Onward
   description: Build a robot using Arduino and receive one.
   website: 
   slack: https://hackclub.slack.com/archives/C079G5MKC93
   slackChannel: "#onward"
-  status: upcoming
+  status: draft
 - name: Hack RTL
   description: Create a desktop app using RTL-SDR, and Hack Club sends you a dongle.
   website: https://hack-rtl.vercel.app/
   slack: https://hackclub.slack.com/archives/C082S5V95G8
   slackChannel: "#hack-rtl"
-  status: upcoming
+  status: draft
 - name: Lab in a Box
   description: Collaborate on projects in teams with resources provided by Hack Club.
   website: 
   slack: https://hackclub.slack.com/archives/C082G4HLZDK
   slackChannel: "#lab-in-a-box"
-  status: upcoming
+  status: draft
 noYouShip:
 - name: Community Newsletter
   description: Receive a fully handwritten monthly newsletter.
