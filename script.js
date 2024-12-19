@@ -55,8 +55,9 @@ function getDeadlineClass(deadlineStr) {
     const diffTime = deadline - now;
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays <= 2) return 'very-urgent';
-    if (diffDays <= 7) return 'urgent';
+    if (diffDays < 0) return 'ended';
+    if (diffDays <= 7) return 'very-urgent';
+    if (diffDays <= 14) return 'urgent';
     return '';
 }
 
