@@ -7,13 +7,13 @@ indefinite:
   slackChannel: "#sprig"
   status: active
 - name: OnBoard
-  description: Design a PCB and receive a $100 grant.
+  description: Design a PCB and we'll fabricate it for you.
   website: https://hackclub.com/onboard
   slack: https://hackclub.slack.com/archives/C056AMWSFKJ
   slackChannel: "#electronics"
   status: active
 - name: OnBoard Live
-  description: Design a PCB live on YouTube for $5/hour.
+  description: Design a PCB live on YouTube for $5/hour PCB credit.
   website: 
   slack: https://hackclub.slack.com/archives/C07F3EA2L8G
   slackChannel: "#onboard-live"
