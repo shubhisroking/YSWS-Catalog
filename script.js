@@ -86,6 +86,9 @@ function createProgramCard(program) {
     
     const encodedProgram = encodeURIComponent(JSON.stringify(program));
     
+    const participantsText = program.participants !== undefined ? 
+        `<div class="program-participants">${program.participants.toLocaleString()} participants</div>` : '';
+    
     return `
         <div class="card program-card ${opensClass}" data-program="${encodedProgram}">
             <div class="program-header">
@@ -94,6 +97,7 @@ function createProgramCard(program) {
             </div>
             <p>${program.description}</p>
             <div class="program-deadline ${deadlineClass}">${deadlineText}</div>
+            ${participantsText}
             <div class="program-links">
                 ${program.website ? `<a href="${program.website}" target="_blank">Website</a>` : ''}
                 ${program.slack ? `<a href="${program.slack}" target="_blank">${program.slackChannel}</a>` : ''}
@@ -164,6 +168,13 @@ function openModal(program) {
     
     const moreDetailsElement = modal.querySelector('.more-details');
     let detailsHTML = '';
+    
+    if (program.participants !== undefined) {
+        detailsHTML += `
+            <h3>Participation</h3>
+            <p>${program.participants.toLocaleString()} hackers participated</p>
+        `;
+    }
     
     if (program.requirements?.length) {
         detailsHTML += `

@@ -1082,3 +1082,10 @@ body.modal-open {
         margin: var(--spacing-2) 0;
     }
 }
+
+.program-participants {
+    font-size: var(--font-1);
+    color: var(--muted);
+    margin-top: var(--spacing-2);
+    font-weight: var(--font-weight-bold);
+}
