@@ -158,7 +158,7 @@ drafts:
   slackChannel: "#draw-sticker-get-sticker"
   status: draft
   opens: Opens October 15th
-  - name: Raspi-YSWS
+- name: Raspi-YSWS
   description: Make a API, Get a Raspberry Pi!
   website: 
   slack: https://hackclub.slack.com/archives/C07UZSKJQRX
