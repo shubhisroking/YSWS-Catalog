@@ -42,15 +42,13 @@ indefinite:
   slackChannel: "#cider"
   status: active
   participants: 34
-- name: Anchor
-  description: Design a VTuber-style logo for your High Seas project and receive custom
-    stickers.
-  website: https://anchor.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C07V5401VMY
-  slackChannel: "#anchor"
-  status: active
-  participants: 26
 limitedTime:
+- name: Hackapet
+  description: Make a pet game, get a hackable tamagotchi clone!
+  website: https://hackapet.hackclub.dev
+  slack: https://hackclub.slack.com/archives/C0809PN4TPE
+  slackChannel: "#hackapet"
+  status: active
 - name: Dessert
   description: Make an Android app and earn a paid Google Developer account.
   website: 
@@ -286,3 +284,10 @@ completed:
   slackChannel: "#trick-or-trace"
   status: completed
   ended: Ended October 21st
+- name: Anchor
+  description: Design a VTuber-style logo for your High Seas project and receive custom stickers.
+  website: https://anchor.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C07V5401VMY
+  slackChannel: "#anchor"
+  status: active
+  participants: 40
