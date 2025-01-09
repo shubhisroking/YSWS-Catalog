@@ -123,6 +123,15 @@ limitedTime:
   slackChannel: "#hacky-holidays"
   status: active
   deadline: '2025-01-15T23:59:59'
+- name: Say Cheese!
+  description: Fit a program in a QR code, get a portable printer and maybe a Blåhaj.
+  detailedDescription: Fit a program inside a QR code, and get a potentially cat-themed
+    portable printer! The best project gets a Blåhaj.
+  website: https://saycheese.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C07QKKZPVD0
+  slackChannel: "#saycheese"
+  status: active
+  deadline: '2025-01-26T23:59:59'
 drafts:
 - name: Forge
   description: Design a 3D model that solves a problem and receive a custom 3D printer.
