@@ -132,6 +132,15 @@ limitedTime:
   slackChannel: "#saycheese"
   status: active
   deadline: '2025-01-26T23:59:59'
+  - name: RaspAPI YSWS
+  description: Make an API get a Raspberry Pi
+  detailedDescription: Create an original API using any programming language or framework that you prefer and get a Raspberry Pi Zero 2 W to host it on! 
+    The API can be anything you want. The possibilities are endless!
+  website: https://raspapi.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C07UZSKJQRX
+  slackChannel: "#raspapi-ysws"
+  status: active
+  deadline: '2025-03-10T23:59:59'
 drafts:
 - name: Forge
   description: Design a 3D model that solves a problem and receive a custom 3D printer.
@@ -165,13 +174,6 @@ drafts:
   slackChannel: "#draw-sticker-get-sticker"
   status: draft
   opens: Opens October 15th
-- name: Raspi-YSWS
-  description: Make a API, Get a Raspberry Pi!
-  website: 
-  slack: https://hackclub.slack.com/archives/C07UZSKJQRX
-  slackChannel: "#rasapi-ysws"
-  status: draft
-  opens: Opens Soon
 - name: Light Up
   description: Design an electronic circuit with lights, and Hack Club sends you the
     components and gifts.
