@@ -7,7 +7,7 @@ indefinite:
   slackChannel: "#sprig"
   status: active
   participants: 657
-- name: OnBoard
+  - name: OnBoard
   description: Design a PCB and we'll fabricate it for you.
   website: https://hackclub.com/onboard
   slack: https://hackclub.slack.com/archives/C056AMWSFKJ
