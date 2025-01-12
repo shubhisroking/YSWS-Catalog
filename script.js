@@ -1,4 +1,44 @@
 let programs = {};
+const apiUrl = "https://api2.hackclub.com/v0.1/Unified%20YSWS%20Projects%20DB/YSWS%20Programs?cache=true";
+var participants = []
+
+function loadParticipants() {
+    fetch(apiUrl).then(response => {
+        if (!response.ok) {
+            throw new Error(`Failed to Fetch Participants Data! ${response.status}`);
+        }
+        return response.json();
+    }).then(data => {
+          participants = data.map(item => ({
+            name: item.fields.Name,
+            total: item.fields["Unweighted–Total"]
+        }));
+        
+        console.log(participants);
+
+    })
+    .catch(error => {
+        console.error("Error fetching data:", error);
+    });
+}
+loadParticipants()
+
+function getParticipantsByName(programName) {
+    if (!participants.length) {
+        console.error("Data has not been fetched yet. Please wait...");
+        return;
+    }
+
+    const program = participants.find(item => item.name.toLowerCase() === programName.toLowerCase());
+    
+    if (program) {
+        console.log(`Program: ${program.name}, Participants: ${program.total}`);
+        return program.total;
+    } else {
+        console.log(`Program "${programName}" not found.`);
+        return null;
+    }
+}
 
 function isEventEnded(deadline) {
     if (!deadline) return false;
@@ -91,9 +131,9 @@ function getDeadlineClass(deadlineStr) {
     return '';
 }
 
-function formatParticipants(count) {
-    if (count === undefined) return '';
-    return `${count.toLocaleString()} participant${count === 1 ? '' : 's'}`;
+function formatParticipants(name) {
+    if (name === undefined) return '';
+    return getParticipantsByName(name)
 }
 
 function createProgramCard(program) {
@@ -105,7 +145,7 @@ function createProgramCard(program) {
     const encodedProgram = encodeURIComponent(JSON.stringify(program));
     
     const participantsText = program.participants !== undefined ? 
-        `<div class="program-participants">${formatParticipants(program.participants)}</div>` : '';
+        `<div class="program-participants">${formatParticipants(program.name)}</div>` : '';
     
     return `
         <div class="card program-card ${opensClass}" data-program="${encodedProgram}">
