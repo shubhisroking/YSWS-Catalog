@@ -2,6 +2,12 @@ let programs = {};
 const apiUrl = "https://api2.hackclub.com/v0.1/Unified%20YSWS%20Projects%20DB/YSWS%20Programs?cache=true";
 var participants = []
 
+async function startRender() {
+    await Promise.all([loadParticipants(), loadPrograms()]);
+    renderPrograms();
+}
+startRender()
+
 function loadParticipants() {
     fetch(apiUrl).then(response => {
         if (!response.ok) {
@@ -74,8 +80,6 @@ async function loadPrograms() {
         programs = Object.fromEntries(
             Object.entries(programs).filter(([_, programsList]) => programsList.length > 0)
         );
-        
-        renderPrograms();
     } catch (error) {
         console.error('Error loading programs:', error);
     }
