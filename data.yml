@@ -122,7 +122,7 @@ limitedTime:
   slack: https://hackclub.slack.com/archives/C083SK3G5D3
   slackChannel: "#hacky-holidays"
   status: active
-  deadline: '2025-01-15T23:59:59'
+  deadline: '2025-01-30T23:59:59'
 - name: Say Cheese!
   description: Fit a program in a QR code, get a portable printer and maybe a Blåhaj.
   detailedDescription: Fit a program inside a QR code, and get a potentially cat-themed
