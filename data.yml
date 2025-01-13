@@ -144,7 +144,7 @@ limitedTime:
 drafts:
 - name: Minus Twelve
   description: Create some kind of useful tool and receive a shiny new microcontroller!
-  website: https://sporeball.dev/minus-twelve
+  website: https://minustwelve.hackclub.com
   slack: https://hackclub.slack.com/archives/C087S82MNFR
   slackChannel: "#minus-twelve"
   status: draft
