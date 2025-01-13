@@ -27,13 +27,18 @@ function loadParticipants() {
         .then(data => {
             participants = data.map(item => ({
                 name: item.fields.Name,
-                total: item.fields["Unweighted–Total"]
+                total: item.fields["Unweighted–Total"],
+                id: item.id
             }));
         })
         .catch(error => {
             console.error("Error fetching data:", error);
         });
 }
+
+const unifiedDbOverrides = {
+    "HackCraft": "recE2drMuGXUWJi3L",
+};
 
 function animateNumber(element, start, end, duration = 1000) {
     const startTime = performance.now();
@@ -70,7 +75,10 @@ function updateParticipantCounts() {
         const programData = JSON.parse(decodeURIComponent(programCard.dataset.program));
         const programName = programData.name;
         
-        const apiData = participants.find(p => p.name === programName);
+        const overrideId = unifiedDbOverrides[programName];
+        const apiData = overrideId
+            ? participants.find(p => p.id === overrideId)
+            : participants.find(p => p.name === programName);
         if (apiData) {
             const initialCount = initialParticipants.get(programName) || 0;
             animateNumber(element, initialCount, apiData.total);
