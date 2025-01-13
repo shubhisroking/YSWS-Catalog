@@ -1088,4 +1088,33 @@ body.modal-open {
     color: var(--muted);
     margin-top: var(--spacing-2);
     font-weight: var(--font-weight-bold);
+    transition: opacity 0.3s ease;
+}
+
+.program-participants span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.program-participants.updating {
+    opacity: 0.5;
+}
+
+.program-participants {
+    font-size: var(--font-1);
+    color: var(--muted);
+    margin-top: var(--spacing-2);
+    font-weight: var(--font-weight-bold);
+    transition: opacity 0.3s ease;
+}
+
+.program-participants.updating {
+    opacity: 0.5;
+}
+
+.program-participants {
+    font-size: var(--font-1);
+    color: var(--muted);
+    margin-top: var(--spacing-2);
+    font-weight: var(--font-weight-bold);
 }

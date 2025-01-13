@@ -1,33 +1,82 @@
 let programs = {};
 const apiUrl = "https://api2.hackclub.com/v0.1/Unified%20YSWS%20Projects%20DB/YSWS%20Programs?cache=true";
-var participants = []
+let participants = [];
+let initialParticipants = new Map();
 
 async function startRender() {
-    await Promise.all([loadParticipants(), loadPrograms()]);
+    await loadPrograms();
+    Object.values(programs).flat().forEach(program => {
+        if (program.participants !== undefined) {
+            initialParticipants.set(program.name, program.participants);
+        }
+    });
+    
     renderPrograms();
+    await loadParticipants();
+    updateParticipantCounts();
 }
-startRender()
 
 function loadParticipants() {
-    fetch(apiUrl).then(response => {
-        if (!response.ok) {
-            throw new Error(`Failed to Fetch Participants Data! ${response.status}`);
-        }
-        return response.json();
-    }).then(data => {
-          participants = data.map(item => ({
-            name: item.fields.Name,
-            total: item.fields["Unweighted–Total"]
-        }));
-        
-        console.log(participants);
+    return fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to Fetch Participants Data! ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            participants = data.map(item => ({
+                name: item.fields.Name,
+                total: item.fields["Unweighted–Total"]
+            }));
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+        });
+}
 
-    })
-    .catch(error => {
-        console.error("Error fetching data:", error);
+function animateNumber(element, start, end, duration = 1000) {
+    const startTime = performance.now();
+    const startNum = parseInt(start) || 0;
+    const endNum = parseInt(end) || 0;
+    const numberSpan = element.querySelector('span');
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const easeOutQuad = 1 - Math.pow(1 - progress, 2);
+        const current = Math.round(startNum + (endNum - startNum) * easeOutQuad);
+        
+        numberSpan.textContent = current;
+        element.textContent = `${current} participant${current !== 1 ? 's' : ''}`;
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.classList.remove('updating');
+        }
+    }
+    
+    element.classList.add('updating');
+    requestAnimationFrame(update);
+}
+
+function updateParticipantCounts() {
+    const participantElements = document.querySelectorAll('.program-participants');
+    
+    participantElements.forEach(element => {
+        const programCard = element.closest('.program-card');
+        const programData = JSON.parse(decodeURIComponent(programCard.dataset.program));
+        const programName = programData.name;
+        
+        const apiData = participants.find(p => p.name === programName);
+        if (apiData) {
+            const initialCount = initialParticipants.get(programName) || 0;
+            animateNumber(element, initialCount, apiData.total);
+        }
     });
 }
-loadParticipants()
 
 function getParticipantsByName(programName) {
     if (!participants.length) {
@@ -136,8 +185,9 @@ function getDeadlineClass(deadlineStr) {
 }
 
 function formatParticipants(name) {
-    if (name === undefined) return '';
-    return getParticipantsByName(name)
+    const initial = initialParticipants.get(name);
+    if (initial === undefined) return '';
+    return `<span>${initial}</span> participant${initial !== 1 ? 's' : ''}`;
 }
 
 function createProgramCard(program) {
@@ -466,26 +516,25 @@ function updateDeadlines() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadPrograms().then(() => {
-        const searchInput = document.getElementById('program-search');
-        searchInput.addEventListener('input', (e) => searchPrograms(e.target.value));
-        
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                filterPrograms(button.dataset.category);
-                searchPrograms(searchInput.value);
-            });
+    startRender();
+    const searchInput = document.getElementById('program-search');
+    searchInput.addEventListener('input', (e) => searchPrograms(e.target.value));
+    
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            filterPrograms(button.dataset.category);
+            searchPrograms(searchInput.value);
         });
-        
-        initializeTheme();
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-        
-        setInterval(updateDeadlines, 60000);
+    });
+    
+    initializeTheme();
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    
+    setInterval(updateDeadlines, 60000);
 
-        document.querySelectorAll('.sort-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                updateSort(button.dataset.sort);
-            });
+    document.querySelectorAll('.sort-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            updateSort(button.dataset.sort);
         });
     });
 
