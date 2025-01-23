@@ -217,7 +217,7 @@ drafts:
   description: Design a 3D model that goes with the Ikea Skadis pegboard, and we will send you one!
   website:
   slack: https://hackclub.slack.com/archives/C0853M4PCUA
-  slackChannel: "#printboard-ysws"
+  slackChannel: "#printboard"
   status: draft
 noYouShip:
 - name: Community Newsletter
