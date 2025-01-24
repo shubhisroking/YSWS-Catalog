@@ -168,12 +168,6 @@ drafts:
   slack: https://hackclub.slack.com/archives/C07BGFG6CDQ
   slackChannel: "#hack-store"
   status: draft
-- name: Docs
-  description: Submit awesome documents, and Hack Club will print them into a book.
-  website: 
-  slack: https://hackclub.slack.com/archives/C07R7P3TT7W
-  slackChannel: "#docs-ysws"
-  status: draft
 - name: Draw Sticker Get Sticker
   description: Draw a sticker, and Hack Club will print and mail it to you.
   website: 
