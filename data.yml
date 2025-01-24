@@ -44,7 +44,7 @@ indefinite:
   participants: 34
 limitedTime:
 - name: Printboard
-  description: Create an attachment for an IKEA SKADIS, get one mailed to you for free!
+  description: Design a 3D model that goes with the Ikea Skadis pegboard, and we will send you one!
   website: https://printboard.hackclub.com/
   slack: https://hackclub.slack.com/archives/C0853M4PCUA
   slackChannel: "#printboard"
@@ -214,12 +214,6 @@ drafts:
   website: 
   slack: https://hackclub.slack.com/archives/C082G4HLZDK
   slackChannel: "#lab-in-a-box"
-  status: draft
-- name: Printboard
-  description: Design a 3D model that goes with the Ikea Skadis pegboard, and we will send you one!
-  website:
-  slack: https://hackclub.slack.com/archives/C0853M4PCUA
-  slackChannel: "#printboard"
   status: draft
 noYouShip:
 - name: Community Newsletter
