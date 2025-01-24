@@ -43,6 +43,14 @@ indefinite:
   status: active
   participants: 34
 limitedTime:
+- name: Printboard
+  description: Design a 3D model that goes with the Ikea Skadis pegboard, and we will send you one!
+  website: https://printboard.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C0853M4PCUA
+  slackChannel: "#printboard"
+  status: active
+  deadline: '2025-2-3T23:59:59'
+  participants: 94
 - name: Minus Twelve
   description: Create a useful tool and receive a shiny new microcontroller!
   website: https://minustwelve.hackclub.com
@@ -206,12 +214,6 @@ drafts:
   website: 
   slack: https://hackclub.slack.com/archives/C082G4HLZDK
   slackChannel: "#lab-in-a-box"
-  status: draft
-- name: Printboard
-  description: Design a 3D model that goes with the Ikea Skadis pegboard, and we will send you one!
-  website:
-  slack: https://hackclub.slack.com/archives/C0853M4PCUA
-  slackChannel: "#printboard"
   status: draft
 noYouShip:
 - name: Community Newsletter
