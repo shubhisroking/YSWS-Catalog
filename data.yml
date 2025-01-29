@@ -49,7 +49,7 @@ limitedTime:
   slack: https://hackclub.slack.com/archives/C0853M4PCUA
   slackChannel: "#printboard"
   status: active
-  deadline: '2025-2-3T23:59:59'
+  deadline: '2025-02-14T23:59:59'
   participants: 94
 - name: Minus Twelve
   description: Create a useful tool and receive a shiny new microcontroller!
@@ -64,12 +64,14 @@ limitedTime:
   slack: https://hackclub.slack.com/archives/C0809PN4TPE
   slackChannel: "#hackapet"
   status: active
+  deadline: '2025-02-03T23:59:59'
 - name: Dessert
   description: Make an Android app and earn a paid Google Developer account.
   website: 
   slack: https://hackclub.slack.com/archives/C07N06B1FDY
   slackChannel: "#dessert"
   status: active
+  deadline: '2025-01-11T23:59:59'
 - name: High Seas
   description: Work on projects, earn doubloons, and compete in the Wonderdome.
   website: https://highseas.hackclub.com/
