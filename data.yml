@@ -43,6 +43,20 @@ indefinite:
   status: active
   participants: 34
 limitedTime:
+- name: Juice
+  description: Spend 100 hours over the course of 2 months building a game, and we will pay for you to get the game on steam, and provide money for a flight out to China, where we will run a popup shop
+  website: https://juice.hackclub.com
+  slack: https://hackclub.slack.com/archives/C088UF12N1Z
+  slackChannel: "#juice"
+  status: active
+  deadline: '2025-04-1T23:59:59'
+- name: Jungle
+  description: Spend time working on your game, get money to help publish it! Prizes include steam license, itch.io asset store credits, and much much more!
+  website: https://juice.hackclub.com
+  slack: hhttps://hackclub.slack.com/archives/C086MACKK43
+  slackChannel: "#jungle"
+  status: active
+  deadline: '2025-04-1T23:59:59'
 - name: Hackpad
   description: Design a macropad, get the parts! Made one already? Build a keyboard!
   website: https://github.com/hackclub/hackpad
