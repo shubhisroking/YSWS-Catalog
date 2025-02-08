@@ -16,7 +16,7 @@ indefinite:
   participants: 604
 - name: OnBoard Live
   description: Design a PCB live on YouTube for $5/hour PCB credit.
-  website: 
+  website:
   slack: https://hackclub.slack.com/archives/C07F3EA2L8G
   slackChannel: "#onboard-live"
   status: active
@@ -35,8 +35,7 @@ indefinite:
   status: active
   participants: 362
 - name: Cider
-  description: Create an iOS app and receive a $100 Apple Developer account to publish
-    it.
+  description: Create an iOS app and receive a $100 Apple Developer account to publish it.
   website: https://cider.hackclub.com/
   slack: https://hackclub.slack.com/archives/C073DTGENJ2
   slackChannel: "#cider"
@@ -89,29 +88,20 @@ limitedTime:
   deadline: '2025-02-03T23:59:59'
 - name: Dessert
   description: Make an Android app and earn a paid Google Developer account.
-  website: 
+  website:
   slack: https://hackclub.slack.com/archives/C07N06B1FDY
   slackChannel: "#dessert"
   status: active
   deadline: '2025-01-11T23:59:59'
-- name: High Seas
-  description: Work on projects, earn doubloons, and compete in the Wonderdome.
-  website: https://highseas.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C07PZMBUNDS
-  slackChannel: "#high-seas"
-  status: active
-  deadline: '2025-01-31T23:59:59'
-  participants: 1119
 - name: Asylum
   description: Fast-paced hardware YSWS challenges.
-  website: 
+  website:
   slack: https://hackclub.slack.com/archives/C083CCAAHM1
   slackChannel: "#asylum"
   status: active
   deadline: '2024-12-11T23:59:59'
 - name: BrowserBuddy
-  description: Build a Chrome extension, and Hack Club provides $30 to launch it on
-    Chrome Web Store.
+  description: Build a Chrome extension, and Hack Club provides $30 to launch it on Chrome Web Store.
   website: https://browserbuddy.hackclub.com/
   slack: https://hackclub.slack.com/archives/C07MQBTNVRU
   slackChannel: "#browser-buddy"
@@ -125,8 +115,7 @@ limitedTime:
   slackChannel: "#mc-modding"
   status: active
   deadline: '2025-01-31T23:59:59'
-  detailedDescription: Join HackCraft to build and ship your own Minecraft mod. Access
-    exclusive resources and a supportive community.
+  detailedDescription: Join HackCraft to build and ship your own Minecraft mod. Access exclusive resources and a supportive community.
   steps:
   - Make a mod.
   - Publish it on Modrinth or Hangar.
@@ -162,19 +151,9 @@ limitedTime:
   slackChannel: "#hacky-holidays"
   status: active
   deadline: '2025-01-30T23:59:59'
-- name: Say Cheese!
-  description: Fit a program in a QR code, get a portable printer and maybe a Blåhaj.
-  detailedDescription: Fit a program inside a QR code, and get a potentially cat-themed
-    portable printer! The best project gets a Blåhaj.
-  website: https://saycheese.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C07QKKZPVD0
-  slackChannel: "#saycheese"
-  status: active
-  deadline: '2025-01-26T23:59:59'
 - name: RaspAPI YSWS
   description: Make an API get a Raspberry Pi
-  detailedDescription: Create an original API using any programming language or framework that you prefer and get a Raspberry Pi Zero 2 W to host it on! 
-    The API can be anything you want. The possibilities are endless!
+  detailedDescription: Create an original API using any programming language or framework that you prefer and get a Raspberry Pi Zero 2 W to host it on! The API can be anything you want. The possibilities are endless!
   website: https://raspapi.hackclub.com/
   slack: https://hackclub.slack.com/archives/C07UZSKJQRX
   slackChannel: "#raspapi-ysws"
@@ -199,8 +178,7 @@ drafts:
   slackChannel: "#forge-updates"
   status: draft
 - name: Vine YSWS
-  description: Create a song using open-source music software and receive a vinyl
-    with your song.
+  description: Create a song using open-source music software and receive a vinyl with your song.
   website: https://vineysws.vercel.app/
   slack: https://hackclub.slack.com/archives/C07N0VA3YGJ
   slackChannel: "#vine-ysws"
@@ -213,28 +191,26 @@ drafts:
   status: draft
 - name: Draw Sticker Get Sticker
   description: Draw a sticker, and Hack Club will print and mail it to you.
-  website: 
+  website:
   slack: https://hackclub.slack.com/archives/C07Q862TYLQ
   slackChannel: "#draw-sticker-get-sticker"
   status: draft
   opens: Opens October 15th
 - name: Light Up
-  description: Design an electronic circuit with lights, and Hack Club sends you the
-    components and gifts.
-  website: 
+  description: Design an electronic circuit with lights, and Hack Club sends you the components and gifts.
+  website:
   slack: https://hackclub.slack.com/archives/C07RNEJ13LJ
   slackChannel: "#lightup-ysws"
   status: draft
 - name: Aether YSWS
-  description: Build a Windows app, and Hack Club provides a Microsoft Store developer
-    account.
-  website: 
+  description: Build a Windows app, and Hack Club provides a Microsoft Store developer account.
+  website:
   slack: https://hackclub.slack.com/archives/C07V78URSGL
   slackChannel: "#aether-ysws"
   status: draft
 - name: Onward
   description: Build a robot using Arduino and receive one.
-  website: 
+  website:
   slack: https://hackclub.slack.com/archives/C079G5MKC93
   slackChannel: "#onward"
   status: draft
@@ -246,21 +222,21 @@ drafts:
   status: draft
 - name: Lab in a Box
   description: Collaborate on projects in teams with resources provided by Hack Club.
-  website: 
+  website:
   slack: https://hackclub.slack.com/archives/C082G4HLZDK
   slackChannel: "#lab-in-a-box"
   status: draft
 noYouShip:
 - name: Community Newsletter
   description: Receive a fully handwritten monthly newsletter.
-  website: 
+  website:
   slack: https://hackclub.slack.com/archives/C07KS2794LX
   slackChannel: "#community-newsletter"
   status: active
 completed:
 - name: Pyramid Scheme
   description: Put up Hack Club posters to earn prizes.
-  website: 
+  website:
   slack: https://hackclub.slack.com/archives/C07N1TCHY3T
   slackChannel: "#pyramid-scheme"
   status: completed
@@ -289,7 +265,7 @@ completed:
   ended: Ended October 8th
 - name: LLM YSWS
   description: Projects using language models.
-  website: 
+  website:
   slack: https://hackclub.slack.com/archives/C07KYNWR10W
   slackChannel: "#llm / #zrl-land"
   status: completed
@@ -313,7 +289,7 @@ completed:
   participants: 277
 - name: HAM Radio YSWS
   description: Related to HAM radio projects.
-  website: 
+  website:
   slack: https://hackclub.slack.com/archives/C01G6UJT2RM
   slackChannel: "#hamradio"
   status: completed
@@ -332,3 +308,28 @@ completed:
   slackChannel: "#anchor"
   status: completed
   participants: 40
+- name: High Seas
+  description: Work on projects, earn doubloons, and compete in the Wonderdome.
+  website: https://highseas.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C07PZMBUNDS
+  slackChannel: "#high-seas"
+  status: completed
+  deadline: '2025-01-31T23:59:59'
+  participants: 1119
+- name: Neon
+  description: Build code, get a 64x32 LED matrix.
+  website: https://neon.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C080GFRKXJ5
+  slackChannel: "#neon"
+  status: completed
+  deadline: '2025-01-31T23:59:59'
+  participants: 195
+- name: Say Cheese!
+  description: Fit a program in a QR code, get a portable printer and maybe a Blåhaj.
+  detailedDescription: Fit a program inside a QR code, and get a potentially cat-themed portable printer! The best project gets a Blåhaj.
+  website: https://saycheese.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C07QKKZPVD0
+  slackChannel: "#saycheese"
+  status: completed
+  deadline: '2025-01-26T23:59:59'
+  participants: 370
