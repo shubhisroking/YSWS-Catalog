@@ -159,16 +159,32 @@ body {
 }
 
 .ultratitle {
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-limit);
-  letter-spacing: var(--letter-spacing-title);
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: -0.03em;
   padding-bottom: 0.25em;
   margin-bottom: -0.1em;
-  background: linear-gradient(45deg, var(--red), var(--blue), var(--green));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-text 8s ease infinite;
+  color: var(--red);
+  position: relative;
+}
+
+.ultratitle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 128px;
+  height: 4px;
+  background: var(--red);
+  border-radius: 999px;
+}
+
+@media screen and (max-width: 48em) {
+  .ultratitle {
+    font-size: 48px;
+  }
 }
 
 @keyframes title-gradient {
@@ -1145,7 +1161,7 @@ body.modal-open {
 .program-participants {
     font-size: var(--font-1);
     color: var(--muted);
-    margin-top: var(--spacing-2);
+    margin-top: var (--spacing-2);
     font-weight: var(--font-weight-bold);
 }
 
