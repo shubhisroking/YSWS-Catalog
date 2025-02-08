@@ -186,6 +186,11 @@ drafts:
   website:
   slack: https://hackclub.slack.com/archives/C08B8HZBC85
   slackChannel: "#hackducky"
+- name: HackABand
+  description: ship a wristband design and we ship you fabric woven wristband with NFC chip
+  website: https://hackaband.vercel.app/
+  slack: https://hackclub.slack.com/archives/C089WSLC59V
+  slackChannel: "#hack-a-band"
   status: draft
 - name: Forge
   description: Design a 3D model that solves a problem and receive a custom 3D printer.
