@@ -1,70 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hack Club YSWS Programs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.js"></script>
 </head>
-<body>
+<body class="noise">
+    <div class="gradient-bg">
+        <div class="gradient-1"></div>
+        <div class="gradient-2"></div>
+        <div class="gradient-3"></div>
+    </div>
     <a href="https://hackclub.com" target="_blank" rel="noopenner noreferrer">
         <img src="https://assets.hackclub.com/flag-orpheus-top.svg" width="15%" height=auto style="padding-left: 20px;" class="max-w-20 sm:max-w-36 left-4 sm:left-12 absolute"></a>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         🌙
     </button>
-    <div class="container">
-        <h1 class="ultratitle">YSWS Programs</h1>
-        <p class="lead">A comprehensive list of Hack Club's "You Ship, We Ship" programs.</p>
-        <p class="caption">Want to update or add something? Submit a PR on <a href="https://github.com/hackclub/YSWS-Catalog" target="_blank">GitHub</a>!</p>
+    <div class="container glassmorphic">
+        <div class="header-content text-center">
+            <h1 class="ultratitle">YSWS Programs</h1>
+            <p class="lead">A comprehensive list of Hack Club's "You Ship, We Ship" programs.</p>
+            <p class="caption">Want to update or add something? Submit a PR on <a href="https://github.com/hackclub/YSWS-Catalog" target="_blank" class="hover-underline">GitHub</a>!</p>
+        </div>
         
-        <div class="search-container">
+        <div class="search-container floating">
             <input type="search" id="program-search" placeholder="Search programs..." class="search-input">
         </div>
 
-        <p class="active-count">Currently <span id="active-count">0</span> active programs</p>
-        
-        <div class="filter-container">
-            <button class="filter-btn active" data-category="all">All</button>
-            <button class="filter-btn" data-category="active">Active</button>
-            <button class="filter-btn" data-category="ending-soon">Ending Soon</button>
-            <button class="filter-btn" data-category="draft">Draft</button>
-            <button class="filter-btn" data-category="completed">Completed</button>
-        </div>
-
-        <div class="sort-container">
-            <button class="sort-btn active" data-sort="default">By Category</button>
-            <button class="sort-btn" data-sort="alphabetical">A-Z</button>
-            <button class="sort-btn" data-sort="deadline">By Deadline</button>
-            <button class="sort-btn" data-sort="status">By Status</button>
-        </div>
-
-        <div id="programs-container">
+        <div class="stats-bar">
+            <p class="active-count"><span id="active-count">0</span> active programs</p>
         </div>
         
-        <div id="program-modal" class="modal">
-            <div class="program-position"><span class="current-position"></span></div>
-            <button class="modal-nav modal-prev" aria-label="Previous program">←</button>
-            <button class="modal-nav modal-next" aria-label="Next program">→</button>
-            <div class="modal-content card">
-                <button class="modal-close" aria-label="Close modal">&times;</button>
-                <div class="modal-header">
-                    <h2 class="title"></h2>
-                    <span class="program-status"></span>
-                </div>
-                <div class="modal-body">
-                    <p class="program-description"></p>
-                    <div class="program-deadline"></div>
-                    <div class="program-details">
-                        <h3>How to Participate</h3>
-                        <div class="participation-steps"></div>
-                        <div class="more-details"></div>
-                        <div class="program-links"></div>
-                    </div>
+        <div class="controls-wrapper">
+            <div class="filter-container">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="active">Active</button>
+                <button class="filter-btn" data-category="ending-soon">Ending Soon</button>
+                <button class="filter-btn" data-category="draft">Draft</button>
+                <button class="filter-btn" data-category="completed">Completed</button>
+            </div>
+
+            <div class="sort-container">
+                <button class="sort-btn active" data-sort="default">By Category</button>
+                <button class="sort-btn" data-sort="alphabetical">A-Z</button>
+                <button class="sort-btn" data-sort="deadline">By Deadline</button>
+                <button class="sort-btn" data-sort="status">By Status</button>
+            </div>
+        </div>
+
+        <div id="programs-container" class="fade-in">
+        </div>
+    </div>
+
+    <div id="program-modal" class="modal">
+        <div class="program-position"><span class="current-position"></span></div>
+        <button class="modal-nav modal-prev" aria-label="Previous program">←</button>
+        <button class="modal-nav modal-next" aria-label="Next program">→</button>
+        <div class="modal-content card">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <h2 class="title" id="modal-title"></h2>
+                <span class="program-status"></span>
+            </div>
+            <div class="modal-body">
+                <p class="program-description"></p>
+                <div class="program-deadline"></div>
+                <div class="program-details">
+                    <h3>How to Participate</h3>
+                    <div class="participation-steps"></div>
+                    <div class="more-details"></div>
+                    <div class="program-links"></div>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
