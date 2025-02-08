@@ -181,6 +181,11 @@ limitedTime:
   status: active
   deadline: '2025-03-10T23:59:59'
 drafts:
+- name: Hackducky
+  description: Create A DuckyScript get a Rubber Ducky ! ( hackducky )
+  website:
+  slack: https://hackclub.slack.com/archives/C08B8HZBC85
+  slackChannel: "#hackducky"
 - name: HackABand
   description: ship a wristband design and we ship you fabric woven wristband with NFC chip
   website: https://hackaband.vercel.app/
