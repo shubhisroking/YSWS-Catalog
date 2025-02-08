@@ -48,14 +48,14 @@ limitedTime:
   slack: https://hackclub.slack.com/archives/C088UF12N1Z
   slackChannel: "#juice"
   status: active
-  deadline: '2025-04-1T23:59:59'
+  deadline: '2025-04-01T23:59:59'
 - name: Jungle
   description: Spend time working on your game, get money to help publish it! Prizes include steam license, itch.io asset store credits, and much much more!
   website: https://juice.hackclub.com
-  slack: hhttps://hackclub.slack.com/archives/C086MACKK43
+  slack: https://hackclub.slack.com/archives/C086MACKK43
   slackChannel: "#jungle"
   status: active
-  deadline: '2025-04-1T23:59:59'
+  deadline: '2025-04-01T23:59:59'
 - name: Hackpad
   description: Design a macropad, get the parts! Made one already? Build a keyboard!
   website: https://github.com/hackclub/hackpad
@@ -195,7 +195,7 @@ drafts:
   slack: https://hackclub.slack.com/archives/C07Q862TYLQ
   slackChannel: "#draw-sticker-get-sticker"
   status: draft
-  opens: Opens October 15th
+  opens: '2025-10-15T00:00:00'
 - name: Light Up
   description: Design an electronic circuit with lights, and Hack Club sends you the components and gifts.
   website:
@@ -277,7 +277,7 @@ completed:
   slack: https://hackclub.slack.com/archives/C06SBHMQU8G
   slackChannel: "#hack-hour"
   status: completed
-  ended: Ended September 31st
+  ended: Ended September 1st
   participants: 1229
 - name: The Bin
   description: Hardware-related projects.
@@ -285,7 +285,7 @@ completed:
   slack: https://hackclub.slack.com/archives/C01FXNNF6F2
   slackChannel: "#electronics"
   status: completed
-  ended: Ended September 31st
+  ended: Ended September 30th
   participants: 277
 - name: HAM Radio YSWS
   description: Related to HAM radio projects.
