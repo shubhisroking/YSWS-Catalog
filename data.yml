@@ -165,6 +165,7 @@ drafts:
   website:
   slack: https://hackclub.slack.com/archives/C08B8HZBC85
   slackChannel: "#hackducky"
+  status: draft
 - name: HackABand
   description: ship a wristband design and we ship you fabric woven wristband with NFC chip
   website: https://hackaband.vercel.app/
