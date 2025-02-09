@@ -90,6 +90,10 @@
   --dark-elevated: var(--dark);
   --dark-border: var(--darkless);
   --dark-sunken: var(--darkless);
+  --font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  --gradient-1: rgba(236, 55, 80, 0.3);
+  --gradient-2: rgba(51, 142, 218, 0.3);
+  --gradient-3: rgba(51, 214, 166, 0.3);
 }
 
 .dark-theme {
@@ -124,8 +128,7 @@
 }
 
 body {
-  font-family: "Phantom Sans", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-family);
   line-height: var(--line-height-body);
   font-weight: var(--font-weight-body);
   margin: 0;
@@ -156,19 +159,40 @@ body {
 }
 
 .ultratitle {
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-limit);
-  letter-spacing: var(--letter-spacing-title);
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: -0.03em;
   padding-bottom: 0.25em;
   margin-bottom: -0.1em;
-  background: linear-gradient(45deg, var(--primary), var(--blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: title-gradient 6s ease infinite;
+  color: var(--red);
+  position: relative;
+}
+
+.ultratitle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 128px;
+  height: 4px;
+  background: var(--red);
+  border-radius: 999px;
+}
+
+@media screen and (max-width: 48em) {
+  .ultratitle {
+    font-size: 48px;
+  }
 }
 
 @keyframes title-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes gradient-text {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
@@ -345,7 +369,7 @@ button.cta {
 
 .card.interactive:hover,
 .card.interactive:focus {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -419,7 +443,10 @@ label.horizontal {
   margin: auto;
   padding-left: var(--spacing-3);
   padding-right: var(--spacing-3);
-  padding-top: var(--spacing-4);  /* Add this line */
+  padding-top: var(--spacing-4);
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
 }
 
 h1 {
@@ -583,12 +610,14 @@ td {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid transparent;
   cursor: pointer;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .program-card:hover {
   border-color: var(--primary);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .program-card.opens-soon {
@@ -781,17 +810,22 @@ td {
   width: 100%;
 }
 
+.search-container.floating {
+  position: relative;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
 .search-input {
   width: 100%;
-  max-width: 600px;
-  padding: var(--spacing-2) var(--spacing-3);
-  font-size: var(--font-2);
-  border: 2px solid var(--border);
-  border-radius: var(--radii-default);
-  background: var(--elevated);
-  color: var(--text);
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .search-input:focus {
@@ -799,6 +833,12 @@ td {
   border-color: var(--primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(236, 55, 80, 0.15);
+}
+
+.dark-theme .search-input {
+  background: rgba(23, 23, 29, 0.9);
 }
 
 .program-card.hidden-by-search {
@@ -815,10 +855,11 @@ td {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -831,6 +872,7 @@ td {
 }
 
 .modal-content {
+    background: var(--elevated);
     position: relative;
     width: 90%;
     max-width: 600px;
@@ -839,6 +881,10 @@ td {
     transform: translateY(-20px);
     transition: transform 0.3s ease;
     padding: var(--spacing-4);
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
 }
 
 .modal-close {
@@ -1115,6 +1161,89 @@ body.modal-open {
 .program-participants {
     font-size: var(--font-1);
     color: var(--muted);
-    margin-top: var(--spacing-2);
+    margin-top: var (--spacing-2);
     font-weight: var(--font-weight-bold);
+}
+
+.noise {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.noise::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3C/rect%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.gradient-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transform: translateZ(0);
+    z-index: -2;
+}
+
+.gradient-1, .gradient-2, .gradient-3 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: gradient-shift 8s ease infinite alternate;
+}
+
+.gradient-1 {
+    background: var(--gradient-1);
+    width: 600px;
+    height: 600px;
+    left: -100px;
+    top: -100px;
+}
+
+.gradient-2 {
+    background: var(--gradient-2);
+    width: 700px;
+    height: 700px;
+    right: -100px;
+    top: 50%;
+    animation-delay: -2s;
+}
+
+.gradient-3 {
+    background: var(--gradient-3);
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    bottom: -100px;
+    animation-delay: -4s;
+}
+
+@keyframes gradient-shift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+.glassmorphic {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .glassmorphic {
+    background: rgba(23, 23, 29, 0.8);
+}
+
+.header-content {
+    text-align: center;
+    margin-bottom: 4rem;
 }

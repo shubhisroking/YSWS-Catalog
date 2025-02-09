@@ -167,12 +167,20 @@ limitedTime:
   slackChannel: "#bakebuild"
   status: active
   deadline: "2025-02-11T23:59:59"
+- name: Retrospect (J2ME edition)
+  description: Create a J2ME game (Java MIDlet) and have it delivered on a J2ME-capable phone.
+  website: https://retrospect.hackclub.com/j2me
+  slack: https://hackclub.slack.com/archives/C07MUFXNG82
+  slackChannel: "#retrospect"
+  status: active
+  deadline: '2025-04-07T23:59:59'
 drafts:
 - name: Hackducky
   description: Create A DuckyScript get a Rubber Ducky ! ( hackducky )
   website:
   slack: https://hackclub.slack.com/archives/C08B8HZBC85
   slackChannel: "#hackducky"
+  status: draft
 - name: HackABand
   description: ship a wristband design and we ship you fabric woven wristband with NFC chip
   website: https://hackaband.vercel.app/
@@ -197,13 +205,6 @@ drafts:
   slack: https://hackclub.slack.com/archives/C07BGFG6CDQ
   slackChannel: "#hack-store"
   status: draft
-- name: Draw Sticker Get Sticker
-  description: Draw a sticker, and Hack Club will print and mail it to you.
-  website:
-  slack: https://hackclub.slack.com/archives/C07Q862TYLQ
-  slackChannel: "#draw-sticker-get-sticker"
-  status: draft
-  opens: '2025-10-15T00:00:00'
 - name: Light Up
   description: Design an electronic circuit with lights, and Hack Club sends you the components and gifts.
   website:

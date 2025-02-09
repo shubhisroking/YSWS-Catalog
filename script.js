@@ -547,6 +547,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('click', (e) => {
+        if (e.target.closest('.program-card') && e.target.closest('a')) {
+            return;
+        }
+        
         if (e.target.closest('.program-card')) {
             const encodedProgram = e.target.closest('.program-card').dataset.program;
             const program = JSON.parse(decodeURIComponent(encodedProgram));
