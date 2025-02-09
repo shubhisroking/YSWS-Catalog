@@ -159,6 +159,13 @@ limitedTime:
   slackChannel: "#raspapi-ysws"
   status: active
   deadline: '2025-03-10T23:59:59'
+- name: Retrospect (J2ME edition)
+  description: Create a J2ME game (Java MIDlet) and have it delivered on a J2ME-capable phone.
+  website: https://retrospect.hackclub.com/j2me
+  slack: https://hackclub.slack.com/archives/C07MUFXNG82
+  slackChannel: "#retrospect"
+  status: active
+  deadline: '2025-04-07T23:59:59'
 drafts:
 - name: Hackducky
   description: Create A DuckyScript get a Rubber Ducky ! ( hackducky )
