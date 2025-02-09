@@ -197,13 +197,6 @@ drafts:
   slack: https://hackclub.slack.com/archives/C07BGFG6CDQ
   slackChannel: "#hack-store"
   status: draft
-- name: Draw Sticker Get Sticker
-  description: Draw a sticker, and Hack Club will print and mail it to you.
-  website:
-  slack: https://hackclub.slack.com/archives/C07Q862TYLQ
-  slackChannel: "#draw-sticker-get-sticker"
-  status: draft
-  opens: '2025-10-15T00:00:00'
 - name: Light Up
   description: Design an electronic circuit with lights, and Hack Club sends you the components and gifts.
   website:
