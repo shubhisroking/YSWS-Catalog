@@ -161,7 +161,7 @@ limitedTime:
   deadline: '2025-03-10T23:59:59'
 - name: BakeBuild
   description: Design a cookie cutter, get it shipped!
-  detailedDescription: You ship : A CAD model of a cookie cutter, we ship : A 3D printed model of your custom cookie cutter & cookies!
+  detailedDescription: "You ship : A CAD model of a cookie cutter, we ship : A 3D printed model of your custom cookie cutter & cookies!"
   website: https://bakebuild.hackclub.com/
   slack: https://hackclub.slack.com/archives/C0844MV2JM9
   slackChannel: "#bakebuild"
