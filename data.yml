@@ -1,46 +1,4 @@
 ---
-indefinite:
-- name: Sprig
-  description: Build a JS game and play it on your own console.
-  website: https://sprig.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C02UN35M7LG
-  slackChannel: "#sprig"
-  status: active
-  participants: 657
-- name: OnBoard
-  description: Design a PCB and we'll fabricate it for you.
-  website: https://hackclub.com/onboard
-  slack: https://hackclub.slack.com/archives/C056AMWSFKJ
-  slackChannel: "#electronics"
-  status: active
-  participants: 604
-- name: OnBoard Live
-  description: Design a PCB live on YouTube for $5/hour PCB credit.
-  website:
-  slack: https://hackclub.slack.com/archives/C07F3EA2L8G
-  slackChannel: "#onboard-live"
-  status: active
-- name: Boba Drops
-  description: Build a website and get boba!
-  website: https://boba.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C06UJR8QW0M
-  slackChannel: "#boba"
-  status: active
-  participants: 1253
-- name: Hackaccino
-  description: Build a 3D website and get a free frappuccino.
-  website: https://fraps.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C078DFVL5LZ
-  slackChannel: "#fraps"
-  status: active
-  participants: 362
-- name: Cider
-  description: Create an iOS app and receive a $100 Apple Developer account to publish it.
-  website: https://cider.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C073DTGENJ2
-  slackChannel: "#cider"
-  status: active
-  participants: 34
 limitedTime:
 - name: Juice
   description: Spend 100 hours over the course of 2 months building a game, and we will pay for you to get the game on steam, and provide money for a flight out to China, where we will run a popup shop
@@ -182,6 +140,48 @@ limitedTime:
   slackChannel: "#retrospect"
   status: active
   deadline: '2025-04-07T23:59:59'
+indefinite:
+- name: Sprig
+  description: Build a JS game and play it on your own console.
+  website: https://sprig.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C02UN35M7LG
+  slackChannel: "#sprig"
+  status: active
+  participants: 657
+- name: OnBoard
+  description: Design a PCB and we'll fabricate it for you.
+  website: https://hackclub.com/onboard
+  slack: https://hackclub.slack.com/archives/C056AMWSFKJ
+  slackChannel: "#electronics"
+  status: active
+  participants: 604
+- name: OnBoard Live
+  description: Design a PCB live on YouTube for $5/hour PCB credit.
+  website:
+  slack: https://hackclub.slack.com/archives/C07F3EA2L8G
+  slackChannel: "#onboard-live"
+  status: active
+- name: Boba Drops
+  description: Build a website and get boba!
+  website: https://boba.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C06UJR8QW0M
+  slackChannel: "#boba"
+  status: active
+  participants: 1253
+- name: Hackaccino
+  description: Build a 3D website and get a free frappuccino.
+  website: https://fraps.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C078DFVL5LZ
+  slackChannel: "#fraps"
+  status: active
+  participants: 362
+- name: Cider
+  description: Create an iOS app and receive a $100 Apple Developer account to publish it.
+  website: https://cider.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C073DTGENJ2
+  slackChannel: "#cider"
+  status: active
+  participants: 34
 drafts:
 - name: Hackducky
   description: Create A DuckyScript get a Rubber Ducky ! ( hackducky )
