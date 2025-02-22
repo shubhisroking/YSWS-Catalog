@@ -243,6 +243,12 @@ drafts:
   slack: https://hackclub.slack.com/archives/C082G4HLZDK
   slackChannel: "#lab-in-a-box"
   status: draft
+- name: Hack the Line
+  description: Get an Asterisk server running, and we'll send you a VoIP phone.
+  website:
+  slack: https://hackclub.slack.com/archives/C08B6PHLADU
+  slackChannel: "#hacktheline"
+  status: draft
 noYouShip:
 - name: Community Newsletter
   description: Receive a fully handwritten monthly newsletter.
