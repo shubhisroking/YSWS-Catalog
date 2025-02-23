@@ -1,6 +1,6 @@
 ---
 limitedTime:
--  name: RaspAPI YSWS
+- name: RaspAPI YSWS
   description: Make an API get a Raspberry Pi
   detailedDescription: Create an original API using any programming language or framework that you prefer and get a Raspberry Pi Zero 2 W to host it on! The API can be anything you want. The possibilities are endless!
   website: https://raspapi.hackclub.com/
