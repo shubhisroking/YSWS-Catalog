@@ -16,8 +16,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install Dependencies
+        run: npm install
+
       - name: json-yaml-validate
         id: json-yaml-validate
         uses: GrantBirki/json-yaml-validate@v3.2.1
         with:
           comment: "true"
+      
+      - name: Validate Dates in data.yml
+        run: node validateDates.js
