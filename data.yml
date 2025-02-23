@@ -1,5 +1,12 @@
 ---
 limitedTime:
+- name: Black Box
+  description: Create a constrained, interactive C program and get a portable device to run it on!
+  website: https://blackbox.hackclub.com
+  slack: https://hackclub.slack.com/archives/C08APN1CKEJ
+  slackChannel: "#black-box"
+  status: active
+  deadline: '2025-03-15T23:59:59'
 - name: Juice
   description: Spend 100 hours over the course of 2 months building a game, and we will pay for you to get the game on steam, and provide money for a flight out to China, where we will run a popup shop
   website: https://juice.hackclub.com
