@@ -1,5 +1,13 @@
 ---
 limitedTime:
+-  name: RaspAPI YSWS
+  description: Make an API get a Raspberry Pi
+  detailedDescription: Create an original API using any programming language or framework that you prefer and get a Raspberry Pi Zero 2 W to host it on! The API can be anything you want. The possibilities are endless!
+  website: https://raspapi.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C07UZSKJQRX
+  slackChannel: "#raspapi-ysws"
+  status: active
+  deadline: '2025-03-10T23:59:59'
 - name: Black Box
   description: Create a constrained, interactive C program and get a portable device to run it on!
   website: https://blackbox.hackclub.com
@@ -7,6 +15,22 @@ limitedTime:
   slackChannel: "#black-box"
   status: active
   deadline: '2025-03-15T23:59:59'
+- name: Hackpad
+  description: Design a keyboard get the parts! Please note this is only open to those who have build a Macropad previously.
+  website: https://github.com/hackclub/hackpad
+  slack: https://hackclub.slack.com/archives/C07LESGH0B0
+  slackChannel: "#hackpad"
+  status: active
+  deadline: '2025-03-16T23:59:59'
+  participants: 719
+- name: BrowserBuddy
+  description: Build a Chrome extension, and Hack Club provides $30 to launch it on Chrome Web Store.
+  website: https://browserbuddy.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C07MQBTNVRU
+  slackChannel: "#browser-buddy"
+  status: active
+  deadline: '2025-3-19T23:59:59'
+  participants: 22
 - name: Juice
   description: Spend 100 hours over the course of 2 months building a game, and we will pay for you to get the game on steam, and provide money for a flight out to China, where we will run a popup shop
   website: https://juice.hackclub.com
@@ -21,14 +45,6 @@ limitedTime:
   slackChannel: "#jungle"
   status: active
   deadline: '2025-04-01T23:59:59'
-- name: Hackpad
-  description: Design a macropad, get the parts! Made one already? Build a keyboard!
-  website: https://github.com/hackclub/hackpad
-  slack: https://hackclub.slack.com/archives/C07LESGH0B0
-  slackChannel: "#hackpad"
-  status: active
-  deadline: '2025-02-16T23:59:59'
-  participants: 719
 - name: Infill
   description: Design your own 3D printer, get the parts shipped to you. Get it printing, get flown to a 3D printing festival in Colorado!
   website: https://github.com/hackclub/infill
@@ -37,12 +53,19 @@ limitedTime:
   status: active
   deadline: '2025-05-04T23:59:59'
   participants: 161
+- name: Asylum
+  description: Fast-paced hardware YSWS challenges.
+  website:
+  slack: https://hackclub.slack.com/archives/C083CCAAHM1
+  slackChannel: "#asylum"
+  status: active
+  deadline: '2025-12-31T23:59:59'
 - name: Printboard
   description: Design a 3D model that goes with the Ikea Skadis pegboard, and we will send you one!
   website: https://printboard.hackclub.com/
   slack: https://hackclub.slack.com/archives/C0853M4PCUA
   slackChannel: "#printboard"
-  status: active
+  status: completed
   deadline: '2025-02-16T23:59:59'
   participants: 94
 - name: Minus Twelve
@@ -50,37 +73,22 @@ limitedTime:
   website: https://minustwelve.hackclub.com
   slack: https://hackclub.slack.com/archives/C087S82MNFR
   slackChannel: "#minus-twelve"
-  status: active
+  status: completed
   deadline: '2025-01-27T23:59:59'
 - name: Hackapet
   description: Make a pet game, get a hackable tamagotchi clone!
   website: https://hackapet.hackclub.dev
   slack: https://hackclub.slack.com/archives/C0809PN4TPE
   slackChannel: "#hackapet"
-  status: active
+  status: completed
   deadline: '2025-02-03T23:59:59'
 - name: Dessert
   description: Make an Android app and earn a paid Google Developer account.
   website:
   slack: https://hackclub.slack.com/archives/C07N06B1FDY
   slackChannel: "#dessert"
-  status: active
+  status: completed
   deadline: '2025-01-11T23:59:59'
-- name: Asylum
-  description: Fast-paced hardware YSWS challenges.
-  website:
-  slack: https://hackclub.slack.com/archives/C083CCAAHM1
-  slackChannel: "#asylum"
-  status: active
-  deadline: '2024-12-11T23:59:59'
-- name: BrowserBuddy
-  description: Build a Chrome extension, and Hack Club provides $30 to launch it on Chrome Web Store.
-  website: https://browserbuddy.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C07MQBTNVRU
-  slackChannel: "#browser-buddy"
-  status: active
-  deadline: '2025-3-19T23:59:59'
-  participants: 22
 - name: HackCraft
   description: Create a Minecraft mod, and Hack Club sends you Minecraft Java!
   website: https://hackcraft.hackclub.com/
@@ -124,14 +132,6 @@ limitedTime:
   slackChannel: "#hacky-holidays"
   status: completed
   deadline: '2025-01-30T23:59:59'
-- name: RaspAPI YSWS
-  description: Make an API get a Raspberry Pi
-  detailedDescription: Create an original API using any programming language or framework that you prefer and get a Raspberry Pi Zero 2 W to host it on! The API can be anything you want. The possibilities are endless!
-  website: https://raspapi.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C07UZSKJQRX
-  slackChannel: "#raspapi-ysws"
-  status: active
-  deadline: '2025-03-10T23:59:59'
 - name: BakeBuild
   description: Design a cookie cutter, get it shipped!
   detailedDescription: "You ship : A CAD model of a cookie cutter, we ship : A 3D printed model of your custom cookie cutter & cookies!"
@@ -244,12 +244,6 @@ drafts:
   slack: https://hackclub.slack.com/archives/C082S5V95G8
   slackChannel: "#hack-rtl"
   status: draft
-- name: Lab in a Box
-  description: Collaborate on projects in teams with resources provided by Hack Club.
-  website:
-  slack: https://hackclub.slack.com/archives/C082G4HLZDK
-  slackChannel: "#lab-in-a-box"
-  status: draft
 - name: Hack the Line
   description: Get an Asterisk server running, and we'll send you a VoIP phone.
   website:
@@ -258,12 +252,12 @@ drafts:
   status: draft
 noYouShip:
 - name: Community Newsletter
-  description: Receive a fully handwritten monthly newsletter.
+  description: Receive a fully handwritten monthly newsletter. Currently paused due to logistics.
   website:
   slack: https://hackclub.slack.com/archives/C07KS2794LX
   slackChannel: "#community-newsletter"
   status: active
-completed:
+  completed:
 - name: Pyramid Scheme
   description: Put up Hack Club posters to earn prizes.
   website:
