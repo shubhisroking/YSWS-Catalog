@@ -29,7 +29,7 @@ limitedTime:
   slack: https://hackclub.slack.com/archives/C07MQBTNVRU
   slackChannel: "#browser-buddy"
   status: active
-  deadline: '2025-3-19T23:59:59'
+  deadline: '2025-03-19T23:59:59'
   participants: 22
 - name: Juice
   description: Spend 100 hours over the course of 2 months building a game, and we will pay for you to get the game on steam, and provide money for a flight out to China, where we will run a popup shop
