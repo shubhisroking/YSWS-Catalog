@@ -1,6 +1,14 @@
 ---
 limitedTime:
-- name: RaspAPI YSWS
+- name: Cafe
+  description: Collect cups, progress the graph, earn bonuses!
+  detailedDescription: Work on a personal project in a huddle, get a cup every hour. Getting certain amounts of cups can get you special prizes! See the cafe-bulletin channel for more information!
+  website:
+  slack: https://hackclub.slack.com/archives/C02A74Z7G7L
+  slackChannel: "#cafe"
+  status: active
+  deadline: '2025-03-03T23:59:59'
+- name: RaspAPI
   description: Make an API get a Raspberry Pi
   detailedDescription: Create an original API using any programming language or framework that you prefer and get a Raspberry Pi Zero 2 W to host it on! The API can be anything you want. The possibilities are endless!
   website: https://raspapi.hackclub.com/
