@@ -259,13 +259,7 @@ drafts:
   slackChannel: "#hacktheline"
   status: draft
 noYouShip:
-- name: Community Newsletter
-  description: Receive a fully handwritten monthly newsletter. Currently paused due to logistics.
-  website:
-  slack: https://hackclub.slack.com/archives/C07KS2794LX
-  slackChannel: "#community-newsletter"
-  status: active
-  completed:
+completed:
 - name: Pyramid Scheme
   description: Put up Hack Club posters to earn prizes.
   website:
