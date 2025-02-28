@@ -45,7 +45,7 @@ limitedTime:
   website: https://pixeldust.vercel.app #should be changed to a HackClub domain
   slack: https://hackclub.slack.com/archives/C0895PXH53M
   slackChannel: "#pixeldust"
-  status: draft
+  status: active
   deadline: '2025-03-31T23:59:59'
 - name: Juice
   description: Spend 100 hours over the course of 2 months building a game, and we will pay for you to get the game on steam, and provide money for a flight out to China, where we will run a popup shop
