@@ -118,14 +118,15 @@ async function loadPrograms() {
         const completed = [];
         programs = Object.fromEntries(
             Object.entries(rawPrograms).map(([category, programsList]) => [
-                category,
+            category,
+            (programsList && Array.isArray(programsList)) ? 
                 programsList.filter(program => {
-                    if (program.status === 'completed' || isEventEnded(program.deadline)) {
-                        completed.push({ ...program, status: 'completed' });
-                        return false;
-                    }
-                    return true;
-                })
+                if (program.status === 'completed' || isEventEnded(program.deadline)) {
+                    completed.push({ ...program, status: 'completed' });
+                    return false;
+                }
+                return true;
+                }) : []
             ])
         );
 
