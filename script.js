@@ -143,7 +143,7 @@ async function loadPrograms() {
     }
 }
 
-function formatDeadline(deadlineStr, opensStr) {
+function formatDeadline(deadlineStr, opensStr, endedStr) {
     if (opensStr) {
         const opensDate = new Date(opensStr);
         const now = new Date();
@@ -154,6 +154,20 @@ function formatDeadline(deadlineStr, opensStr) {
                 year: opensDate.getFullYear() !== new Date().getFullYear() ? 'numeric' : undefined
             })}`;
         }
+    }
+    
+    if (endedStr) {
+        if (endedStr.match(/^\d{4}-\d{2}-\d{2}/) || endedStr.includes('T')) {
+            const endedDate = new Date(endedStr);
+            if (!isNaN(endedDate.getTime())) {
+                return `Ended on ${endedDate.toLocaleDateString('en-US', { 
+                    month: 'long', 
+                    day: 'numeric',
+                    year: endedDate.getFullYear() !== new Date().getFullYear() ? 'numeric' : undefined
+                })}`;
+            }
+        }
+        return endedStr;
     }
     
     if (!deadlineStr) return '';
@@ -200,7 +214,7 @@ function formatParticipants(name) {
 }
 
 function createProgramCard(program) {
-    const deadlineText = formatDeadline(program.deadline, program.opens);
+    const deadlineText = formatDeadline(program.deadline, program.opens, program.ended);
     const deadlineClass = getDeadlineClass(program.deadline);
     
     const opensClass = program.opens && new Date() < new Date(program.opens) ? 'opens-soon' : '';
@@ -271,7 +285,7 @@ function openModal(program) {
         program.detailedDescription || program.description;
     
     const deadlineElement = modal.querySelector('.program-deadline');
-    const deadlineText = formatDeadline(program.deadline, program.opens);
+    const deadlineText = formatDeadline(program.deadline, program.opens, program.ended);
     const deadlineClass = getDeadlineClass(program.deadline);
     deadlineElement.className = `program-deadline ${deadlineClass}`;
     deadlineElement.textContent = deadlineText;
@@ -511,7 +525,7 @@ function updateDeadlines() {
                 return;
             }
             
-            const deadlineText = formatDeadline(programData.deadline, programData.opens);
+            const deadlineText = formatDeadline(programData.deadline, programData.opens, programData.ended);
             const deadlineClass = getDeadlineClass(programData.deadline);
             
             element.textContent = deadlineText;
