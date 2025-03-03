@@ -266,14 +266,6 @@ drafts:
   slack: https://hackclub.slack.com/archives/C08B6PHLADU
   slackChannel: "#hacktheline"
   status: draft
-- name: Draw Sticker Get Sticker
-  description: Draw a sticker and get it printed and mailed.
-  website:
-  slack: https://slack.com/archives/C07Q862TYLQ
-  slackChannel: "#draw-sticker-get-sticker"
-  status: draft
-noYouShip:
-completed:
 - name: Pyramid Scheme
   description: Put up Hack Club posters to earn prizes.
   website:
