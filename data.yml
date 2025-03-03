@@ -266,6 +266,12 @@ drafts:
   slack: https://hackclub.slack.com/archives/C08B6PHLADU
   slackChannel: "#hacktheline"
   status: draft
+- name: Draw Sticker Get Sticker
+  description: Draw a sticker and get it printed and mailed.
+  website:
+  slack: https://slack.com/archives/C07Q862TYLQ
+  slackChannel: "#draw-sticker-get-sticker"
+  status: draft
 noYouShip:
 completed:
 - name: Pyramid Scheme
@@ -367,3 +373,10 @@ completed:
   status: completed
   deadline: '2025-01-26T23:59:59'
   participants: 370
+- name: Cargo Cult
+  description: Build a Rust CLI and get a Rust book.
+  website:
+  slack: https://slack.com/archives/C0121LVV79P
+  slackChannel: "#rust"
+  status: completed
+  ended: '2024-12-31T23:59:59'
