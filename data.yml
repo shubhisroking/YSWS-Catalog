@@ -56,7 +56,7 @@ limitedTime:
   status: active
   deadline: '2025-03-31T23:59:59'
 - name: Juice
-  description: Spend 100 hours over the course of 2 months building a game, and we will pay for you to get the game on steam, and provide money for a flight out to China, where we will run a popup shop
+  description: Spend 100 hours in 2 months building a game, and we'll cover your Steam release and fund a flight to China for a pop-up shop.
   website: https://juice.hackclub.com
   slack: https://hackclub.slack.com/archives/C088UF12N1Z
   slackChannel: "#juice"
