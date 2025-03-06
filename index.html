@@ -6,36 +6,94 @@
     <title>Hack Club YSWS Programs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.js"></script>
 </head>
-<body class="noise">
+<body class="noise parallax-wrapper">
     <div class="gradient-bg">
-        <div class="gradient-1"></div>
-        <div class="gradient-2"></div>
-        <div class="gradient-3"></div>
+        <div class="gradient-blob gradient-1"></div>
+        <div class="gradient-blob gradient-2"></div>
+        <div class="gradient-blob gradient-3"></div>
     </div>
-    <a href="https://hackclub.com" target="_blank" rel="noopenner noreferrer">
-        <img src="https://assets.hackclub.com/flag-orpheus-top.svg" width="15%" height=auto style="padding-left: 20px;" class="max-w-20 sm:max-w-36 left-4 sm:left-12 absolute"></a>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-        🌙
-    </button>
-    <div class="container glassmorphic">
-        <div class="header-content text-center">
-            <h1 class="ultratitle">YSWS Programs</h1>
-            <p class="lead">A comprehensive list of Hack Club's "You Ship, We Ship" programs.</p>
-            <p class="caption">Want to update or add something? Submit a PR on <a href="https://github.com/hackclub/YSWS-Catalog" target="_blank" class="hover-underline">GitHub</a>!</p>
+    
+    <div class="circuit-bg"></div>
+    <div class="grid-overlay"></div>
+    
+    <header class="site-header">
+        <div class="logo-container">
+            <a href="https://hackclub.com" target="_blank" rel="noopenner noreferrer">
+                <img src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="Hack Club" class="logo">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <a href="https://hackclub.com/slack" target="_blank" rel="noopenner noreferrer" class="nav-link">Join Slack</a>
+            <a href="https://github.com/hackclub/YSWS-Catalog" target="_blank" rel="noopenner noreferrer" class="nav-link">GitHub</a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-animated-text">
+                <span class="hero-text-shadow">You Ship,</span>
+                <span class="animated-element">We Ship.</span>
+            </div>
+            <h1 class="hero-title">YSWS <span class="accent">Programs</span></h1>
+            <p class="hero-description">Build something amazing, and Hack Club will ship you something epic in return.</p>
+            <div class="hero-cards">
+                <div class="hero-card">
+                    <div class="hero-card-inner">
+                        <div class="hero-card-front">
+                            <div class="hero-card-icon">🚀</div>
+                            <h3>Ship Your Project</h3>
+                            <p>Create something awesome</p>
+                        </div>
+                        <div class="hero-card-back">
+                            <p>Design a PCB, build a game, create an API, or make something amazing!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <div class="hero-card-inner">
+                        <div class="hero-card-front">
+                            <div class="hero-card-icon">🎁</div>
+                            <h3>Get Rewarded</h3>
+                            <p>Receive awesome gear</p>
+                        </div>
+                        <div class="hero-card-back">
+                            <p>From hardware to subscriptions, get the tools you need to keep building cool things!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#programs-list" class="cta-button">Explore Programs<span class="button-arrow">→</span></a>
+        </div>
+    </section>
+
+    <div class="container glassmorphic programs-container" id="programs-list">
+        <div class="programs-header">
+            <div class="programs-title-container">
+                <h2 class="section-title">YSWS <span class="accent">Programs</span></h2>
+                <div class="programs-subtitle">
+                    <p class="lead">Find your next project opportunity and the rewards that come with it.</p>
+                </div>
+            </div>
+            <div class="programs-stats">
+                <div class="stat">
+                    <div class="stat-number" id="active-count">0</div>
+                    <div class="stat-label">Active Programs</div>
+                </div>
+            </div>
         </div>
         
-        <div class="search-container floating">
-            <input type="search" id="program-search" placeholder="Search programs..." class="search-input">
+        <div class="search-container">
+            <div class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <input type="search" id="program-search" placeholder="Search for programs..." class="search-input">
         </div>
 
-        <div class="stats-bar">
-            <p class="active-count"><span id="active-count">0</span> active programs</p>
-        </div>
-        
         <div class="controls-wrapper">
             <div class="filter-container">
                 <button class="filter-btn active" data-category="all">All</button>
@@ -53,9 +111,22 @@
             </div>
         </div>
 
-        <div id="programs-container" class="fade-in">
-        </div>
+        <div id="programs-container" class="fade-in"></div>
     </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <a href="https://hackclub.com" target="_blank" class="footer-logo">
+                    <img src="https://assets.hackclub.com/icon-rounded.png" alt="Hack Club" width="36">
+                </a>
+                <p>Built with ❤️ by the Hack Club community</p>
+            </div>
+            <div class="footer-column">
+                <p class="caption">Want to update or add something? Submit a PR on <a href="https://github.com/hackclub/YSWS-Catalog" target="_blank">GitHub</a>!</p>
+            </div>
+        </div>
+    </footer>
 
     <div id="program-modal" class="modal">
         <div class="program-position"><span class="current-position"></span></div>
