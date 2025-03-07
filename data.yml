@@ -6,7 +6,7 @@ limitedTime:
   website:
   slack: https://hackclub.slack.com/archives/C02A74Z7G7L
   slackChannel: "#cafe"
-  status: active
+  status: completed
   deadline: '2025-03-03T23:59:59'
 - name: RaspAPI
   description: Make an API get a Raspberry Pi
@@ -39,7 +39,7 @@ limitedTime:
   status: active
   deadline: '2025-03-19T23:59:59'
   participants: 22
-- name: TerminalCraft YSWS
+- name: TerminalCraft
   description: Build a terminal program and earn a Raspberry Pi 4
   detailedDescription: Build & publish a cross-platform terminal app. Get 10 users, open-source it, and snag your Pi 4
   website: https://terminalcraft.hackclub.com/
@@ -171,6 +171,22 @@ limitedTime:
   slackChannel: "#retrospect"
   status: active
   deadline: '2025-04-07T23:59:59'
+- name: Hackaccino
+  description: Build a 3D website and get a free frappuccino.
+  website: https://fraps.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C078DFVL5LZ
+  slackChannel: "#fraps"
+  status: active
+  deadline: Summer of 2025
+  participants: 362
+- name: Cider
+  description: Create an iOS app and receive a $100 Apple Developer account to publish it.
+  website: https://cider.hackclub.com/
+  slack: https://hackclub.slack.com/archives/C073DTGENJ2
+  slackChannel: "#cider"
+  status: active
+  deadline: Summer of 2025
+  participants: 34
 indefinite:
 - name: Sprig
   description: Build a JS game and play it on your own console.
@@ -199,20 +215,6 @@ indefinite:
   slackChannel: "#boba"
   status: active
   participants: 1253
-- name: Hackaccino
-  description: Build a 3D website and get a free frappuccino.
-  website: https://fraps.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C078DFVL5LZ
-  slackChannel: "#fraps"
-  status: active
-  participants: 362
-- name: Cider
-  description: Create an iOS app and receive a $100 Apple Developer account to publish it.
-  website: https://cider.hackclub.com/
-  slack: https://hackclub.slack.com/archives/C073DTGENJ2
-  slackChannel: "#cider"
-  status: active
-  participants: 34
 drafts:
 - name: Hackducky
   description: Create A DuckyScript get a Rubber Ducky ! ( hackducky )
