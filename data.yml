@@ -22,7 +22,7 @@ limitedTime:
   slack: https://hackclub.slack.com/archives/C08APN1CKEJ
   slackChannel: "#black-box"
   status: active
-  deadline: '2025-03-15T23:59:59'
+  deadline: '2025-03-29T23:59:59'
 - name: Hackpad
   description: Design a keyboard get the parts! Please note this is only open to those who have build a Macropad previously.
   website: https://github.com/hackclub/hackpad
