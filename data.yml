@@ -50,7 +50,7 @@ limitedTime:
 - name: Pixeldust
   description: Make a neopixel based PCB, get the parts to make one!
   detailedDescription: Create a PCB using KiCad / other EDA. It should use neopixels and a Xiao RP2040, and act as a decoration. Once submitted you can get the parts to make one yourself!
-  website: https://pixeldust.vercel.app #should be changed to a HackClub domain
+  website: https://pixeldust.hackclub.com/
   slack: https://hackclub.slack.com/archives/C0895PXH53M
   slackChannel: "#pixeldust"
   status: active
