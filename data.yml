@@ -82,8 +82,8 @@ limitedTime:
   website:
   slack: https://hackclub.slack.com/archives/C083CCAAHM1
   slackChannel: "#asylum"
-  status: active
-  deadline: '2025-12-31T23:59:59'
+  status: completed
+  deadline: '2024-12-31T23:59:59'
 - name: Printboard
   description: Design a 3D model that goes with the Ikea Skadis pegboard, and we will send you one!
   website: https://printboard.hackclub.com/
