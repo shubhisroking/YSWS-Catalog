@@ -1914,3 +1914,18 @@ body.modal-open {
 html {
   scroll-behavior: smooth;
 }
+
+.rss-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rss-link svg {
+  color: var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.rss-link:hover svg {
+  transform: scale(1.2);
+}
