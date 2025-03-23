@@ -1945,3 +1945,160 @@ html {
 .rss-link:hover svg {
   transform: scale(1.2);
 }
+
+.program-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-3);
+}
+
+.program-completion-toggle {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-left: var(--spacing-2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .program-completion-toggle {
+  background: rgba(23, 23, 29, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.program-completion-toggle:hover {
+  transform: scale(1.1);
+  background: rgba(51, 214, 166, 0.2);
+  box-shadow: 0 0 10px rgba(51, 214, 166, 0.3);
+}
+
+.program-completion-toggle.completed {
+  background: var(--green);
+  color: white;
+}
+
+.program-completion-toggle.completed:hover {
+  background: var(--red);
+}
+
+.user-completed-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-1);
+  font-weight: var(--font-weight-bold);
+  color: var(--green);
+  background: rgba(51, 214, 166, 0.1);
+  border: 1px solid var(--green);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radii-circle);
+  margin-right: var(--spacing-2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.user-completed-badge.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.modal-completion-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-2);
+  font-weight: var(--font-weight-bold);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radii-circle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: var(--spacing-3);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(5px);
+}
+
+.dark-theme .modal-completion-toggle {
+  background: rgba(23, 23, 29, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-completion-toggle:hover {
+  transform: translateY(-2px);
+  background: rgba(51, 214, 166, 0.2);
+  box-shadow: 0 4px 12px rgba(51, 214, 166, 0.2);
+}
+
+.modal-completion-toggle.completed {
+  background: var(--green);
+  color: white;
+}
+
+.modal-completion-toggle.completed:hover {
+  background: var(--red);
+}
+
+.modal-completion-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-2);
+  font-weight: var(--font-weight-bold);
+  color: var(--green);
+  background: rgba(51, 214, 166, 0.1);
+  border: 1px solid var(--green);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radii-circle);
+  margin-bottom: var(--spacing-3);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal-completion-badge.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.modal-completion-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--spacing-3);
+}
+
+@media (max-width: 768px) {
+  .status-container {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .user-completed-badge {
+    margin-bottom: var(--spacing-1);
+    margin-right: 0;
+  }
+}

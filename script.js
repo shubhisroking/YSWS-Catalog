@@ -2,8 +2,78 @@ let programs = {};
 const apiUrl = "https://api2.hackclub.com/v0.1/Unified%20YSWS%20Projects%20DB/YSWS%20Programs?cache=true";
 let participants = [];
 let initialParticipants = new Map();
+let completedPrograms = new Set();
+
+function loadCompletedPrograms() {
+    const saved = localStorage.getItem('completedPrograms');
+    if (saved) {
+        completedPrograms = new Set(JSON.parse(saved));
+    }
+}
+
+function saveCompletedPrograms() {
+    localStorage.setItem('completedPrograms', JSON.stringify([...completedPrograms]));
+}
+
+function toggleProgramCompletion(programName, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+    
+    if (completedPrograms.has(programName)) {
+        completedPrograms.delete(programName);
+    } else {
+        completedPrograms.add(programName);
+    }
+    
+    saveCompletedPrograms();
+    updateCompletionUI(programName);
+}
+
+function updateCompletionUI(programName) {
+    const isCompleted = completedPrograms.has(programName);
+    
+    document.querySelectorAll(`.program-card[data-name="${programName}"]`).forEach(card => {
+        const completionBtn = card.querySelector('.program-completion-toggle');
+        const completionBadge = card.querySelector('.user-completed-badge');
+        
+        if (completionBtn) {
+            completionBtn.innerHTML = isCompleted ? 
+                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' : 
+                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>';
+            
+            completionBtn.setAttribute('aria-label', isCompleted ? 'Mark as not completed' : 'Mark as completed');
+            completionBtn.classList.toggle('completed', isCompleted);
+        }
+        
+        if (completionBadge) {
+            completionBadge.classList.toggle('visible', isCompleted);
+        }
+    });
+    
+    const modal = document.getElementById('program-modal');
+    if (modal.classList.contains('active')) {
+        const modalTitle = modal.querySelector('.title').textContent;
+        if (modalTitle === programName) {
+            const modalCompletionBtn = modal.querySelector('.modal-completion-toggle');
+            if (modalCompletionBtn) {
+                modalCompletionBtn.innerHTML = isCompleted ? 
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Completed' : 
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg> Mark as completed';
+                
+                modalCompletionBtn.classList.toggle('completed', isCompleted);
+            }
+            
+            const modalCompletionBadge = modal.querySelector('.modal-completion-badge');
+            if (modalCompletionBadge) {
+                modalCompletionBadge.classList.toggle('visible', isCompleted);
+            }
+        }
+    }
+}
 
 async function startRender() {
+    loadCompletedPrograms();
     await loadPrograms();
     Object.values(programs).flat().forEach(program => {
         if (program.participants !== undefined) {
@@ -229,21 +299,38 @@ function createProgramCard(program) {
     
     const encodedProgram = encodeURIComponent(JSON.stringify(program));
     
+    const isCompletedByUser = completedPrograms.has(program.name);
+    const completionButtonClass = isCompletedByUser ? 'completed' : '';
+    const completionIcon = isCompletedByUser ? 
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' : 
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>';
+    
     const participantsText = program.participants !== undefined ? 
         `<div class="program-participants">${formatParticipants(program.name)}</div>` : '';
     
     return `
-        <div class="card program-card ${opensClass}" data-program="${encodedProgram}">
+        <div class="card program-card ${opensClass}" data-program="${encodedProgram}" data-name="${program.name}">
             <div class="program-header">
                 <h3>${program.name}</h3>
-                <span class="program-status status-${program.status}">${program.status}</span>
+                <div class="status-container">
+                    <span class="user-completed-badge ${isCompletedByUser ? 'visible' : ''}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        You completed this
+                    </span>
+                    <span class="program-status status-${program.status}">${program.status}</span>
+                </div>
             </div>
             <p>${program.description}</p>
             <div class="program-deadline ${deadlineClass}">${deadlineText}</div>
             ${participantsText}
-            <div class="program-links">
-                ${program.website ? `<a href="${program.website}" target="_blank">Website</a>` : ''}
-                ${program.slack ? `<a href="${program.slack}" target="_blank">${program.slackChannel}</a>` : ''}
+            <div class="program-footer">
+                <div class="program-links">
+                    ${program.website ? `<a href="${program.website}" target="_blank">Website</a>` : ''}
+                    ${program.slack ? `<a href="${program.slack}" target="_blank">${program.slackChannel}</a>` : ''}
+                </div>
+                <button class="program-completion-toggle ${completionButtonClass}" aria-label="${isCompletedByUser ? 'Mark as not completed' : 'Mark as completed'}" data-program-name="${program.name}">
+                    ${completionIcon}
+                </button>
             </div>
         </div>
     `;
@@ -343,6 +430,17 @@ function openModal(program) {
     if (program.website) links.push(`<a href="${program.website}" target="_blank">Website</a>`);
     if (program.slack) links.push(`<a href="${program.slack}" target="_blank">${program.slackChannel}</a>`);
     modal.querySelector('.program-links').innerHTML = links.join(' | ');
+    
+    const isCompletedByUser = completedPrograms.has(program.name);
+    const modalCompletionBtn = modal.querySelector('.modal-completion-toggle');
+    modalCompletionBtn.innerHTML = isCompletedByUser ? 
+        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Completed' : 
+        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg> Mark as completed';
+    modalCompletionBtn.classList.toggle('completed', isCompletedByUser);
+    modalCompletionBtn.dataset.programName = program.name;
+    
+    const modalCompletionBadge = modal.querySelector('.modal-completion-badge');
+    modalCompletionBadge.classList.toggle('visible', isCompletedByUser);
 
     updatePositionIndicator();
     modal.classList.add('active');
@@ -570,6 +668,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('click', (e) => {
+        if (e.target.closest('.program-completion-toggle')) {
+            const button = e.target.closest('.program-completion-toggle');
+            const programName = button.dataset.programName;
+            toggleProgramCompletion(programName, e);
+            return;
+        }
+        
+        if (e.target.closest('.modal-completion-toggle')) {
+            const button = e.target.closest('.modal-completion-toggle');
+            const programName = button.dataset.programName;
+            toggleProgramCompletion(programName, e);
+            return;
+        }
+        
         if (e.target.closest('.program-card') && e.target.closest('a')) {
             return;
         }
