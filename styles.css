@@ -2061,7 +2061,7 @@ html {
 }
 
 .modal-completion-badge {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 8px;
   font-size: var(--font-2);
@@ -2076,10 +2076,10 @@ html {
   transform: translateY(10px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
-  visibility: hidden;
 }
 
 .modal-completion-badge.visible {
+  display: inline-flex;
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
