@@ -213,6 +213,14 @@ function formatParticipants(name) {
     return `<span>${initial}</span> participant${initial !== 1 ? 's' : ''}`;
 }
 
+function formatUpdatedParticipants(name) {
+    let count = getParticipantsByName(name);
+    if (count === null) {
+        count = initialParticipants.get(name) || 0;
+    }
+    return `<span>${count}</span> participant${count !== 1 ? 's' : ''}`;
+}
+
 function createProgramCard(program) {
     const deadlineText = formatDeadline(program.deadline, program.opens, program.ended);
     const deadlineClass = getDeadlineClass(program.deadline);
@@ -307,7 +315,7 @@ function openModal(program) {
     if (program.participants !== undefined) {
         detailsHTML += `
             <h3>Participation</h3>
-            <p>${formatParticipants(program.name)}</p>
+            <p>${formatUpdatedParticipants(program.name)}</p>
         `;
     }
     
