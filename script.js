@@ -185,14 +185,14 @@ async function loadPrograms() {
         const response = await fetch('data.yml').then(res => res.text());
         const rawPrograms = jsyaml.load(response);
         
-        const completed = [];
+        const ended = [];
         programs = Object.fromEntries(
             Object.entries(rawPrograms).map(([category, programsList]) => [
             category,
             (programsList && Array.isArray(programsList)) ? 
                 programsList.filter(program => {
                 if (program.status === 'completed' || isEventEnded(program.deadline)) {
-                    completed.push({ ...program, status: 'completed' });
+                    ended.push({ ...program, status: 'completed' });
                     return false;
                 }
                 return true;
@@ -201,8 +201,8 @@ async function loadPrograms() {
         );
 
         delete programs['Completed'];
-        if (completed.length > 0) {
-            programs['Completed'] = completed;
+        if (ended.length > 0) {
+            programs['Ended'] = ended;
         }
         
         programs = Object.fromEntries(
@@ -551,6 +551,8 @@ function filterPrograms(category) {
             const statusElement = card.querySelector('.program-status');
             const deadlineElement = card.querySelector('.program-deadline');
             const status = statusElement.textContent;
+            const programName = card.getAttribute('data-name');
+            const isCompletedByUser = completedPrograms.has(programName);
             
             if (category === 'all') {
                 card.classList.remove('hidden-by-filter');
@@ -559,6 +561,12 @@ function filterPrograms(category) {
                     ['urgent', 'very-urgent'].some(cls => 
                         deadlineElement.classList.contains(cls));
                 card.classList.toggle('hidden-by-filter', !isEndingSoon);
+            } else if (category === 'user-completed') {
+                card.classList.toggle('hidden-by-filter', !isCompletedByUser);
+            } else if (category === 'user-not-completed') {
+                card.classList.toggle('hidden-by-filter', isCompletedByUser);
+            } else if (category === 'ended') {
+                card.classList.toggle('hidden-by-filter', status !== 'completed');
             } else {
                 card.classList.toggle('hidden-by-filter', status !== category);
             }
