@@ -540,6 +540,9 @@ function filterPrograms(category) {
     const sections = document.querySelectorAll('.category-section');
     const buttons = document.querySelectorAll('.filter-btn');
 
+    document.getElementById('user-completed-empty').classList.remove('visible');
+    document.getElementById('user-not-completed-empty').classList.remove('visible');
+
     buttons.forEach(btn => {
         btn.classList.toggle('active', btn.dataset.category === category);
     });
@@ -577,6 +580,22 @@ function filterPrograms(category) {
                          !card.classList.contains('hidden-by-search'));
         section.classList.toggle('hidden', !hasVisibleCards);
     });
+
+    if (category === 'user-completed' || category === 'user-not-completed') {
+        const allProgramCards = document.querySelectorAll('.program-card');
+        const hasVisibleCards = Array.from(allProgramCards).some(card => 
+            !card.classList.contains('hidden-by-filter') && 
+            !card.classList.contains('hidden-by-search')
+        );
+
+        if (!hasVisibleCards) {
+            if (category === 'user-completed') {
+                document.getElementById('user-completed-empty').classList.add('visible');
+            } else {
+                document.getElementById('user-not-completed-empty').classList.add('visible');
+            }
+        }
+    }
 }
 
 function searchPrograms(searchTerm) {

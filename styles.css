@@ -2156,3 +2156,43 @@ html {
     margin-right: 0;
   }
 }
+
+.no-results-message {
+  display: none;
+  text-align: center;
+  padding: var(--spacing-5);
+  font-size: var(--font-3);
+  color: var(--muted);
+  width: 100%;
+  border: 2px dashed var(--border);
+  border-radius: var(--radii-default);
+  margin: var(--spacing-4) 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+}
+
+.no-results-message.visible {
+  display: block;
+  animation: fade-in 0.5s ease forwards;
+}
+
+.no-results-message h3 {
+  font-size: var(--font-4);
+  margin-bottom: var(--spacing-2);
+  color: var(--text);
+}
+
+.no-results-message p {
+  margin-bottom: var(--spacing-3);
+}
+
+.no-results-message .action-hint {
+  font-weight: var(--font-weight-bold);
+  color: var(--primary);
+}
+
+.no-results-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-3);
+  opacity: 0.7;
+}
