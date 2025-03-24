@@ -191,8 +191,8 @@ async function loadPrograms() {
             category,
             (programsList && Array.isArray(programsList)) ? 
                 programsList.filter(program => {
-                if (program.status === 'completed' || isEventEnded(program.deadline)) {
-                    ended.push({ ...program, status: 'completed' });
+                if (program.status === 'ended' || isEventEnded(program.deadline)) {
+                    ended.push({ ...program, status: 'ended' });
                     return false;
                 }
                 return true;
@@ -200,7 +200,7 @@ async function loadPrograms() {
             ])
         );
 
-        delete programs['Completed'];
+        delete programs['Ended'];
         if (ended.length > 0) {
             programs['Ended'] = ended;
         }
@@ -569,7 +569,7 @@ function filterPrograms(category) {
             } else if (category === 'user-not-completed') {
                 card.classList.toggle('hidden-by-filter', isCompletedByUser);
             } else if (category === 'ended') {
-                card.classList.toggle('hidden-by-filter', status !== 'completed');
+                card.classList.toggle('hidden-by-filter', status !== 'ended');
             } else {
                 card.classList.toggle('hidden-by-filter', status !== category);
             }

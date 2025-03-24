@@ -666,7 +666,7 @@ td {
   50% { box-shadow: 0 0 15px var(--green); }
 }
 
-.status-completed {
+.status-ended {
   background-color: var(--muted);
   color: var(--white);
 }
