@@ -216,6 +216,12 @@ indefinite:
   status: active
   participants: 1253
 drafts:
+- name: Reef
+  description: Ship a deep learning project (AI/ML/LLM/NN), get a custom coral based accelerator.
+  website:
+  slack: https://hackclub.slack.com/archives/C08K33ZUUR5
+  slackChannel: "#reef"
+  status: draft
 - name: Hackducky
   description: Create A DuckyScript get a Rubber Ducky ! ( hackducky )
   website:
