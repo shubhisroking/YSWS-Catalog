@@ -77,6 +77,13 @@ limitedTime:
   status: active
   deadline: '2025-05-04T23:59:59'
   participants: 161
+- name: Visioneer
+  description: Give your computer the gift of vision, get an esp32-s3-eye to see it through!
+  website: https://visioneer.hackclub.com
+  slack: https://hackclub.slack.com/archives/C082PCKJYMN
+  slackChannel: "#visioneer"
+  status: active
+  deadline: '2025-04-20T23:59:59'
 - name: Asylum
   description: Fast-paced hardware YSWS challenges.
   website:
