@@ -8,6 +8,13 @@ limitedTime:
   slackChannel: "#cafe"
   status: ended
   deadline: '2025-03-03T23:59:59'
+- name: Swirl
+  description: Create a quality website with Scoops, get ice cream!
+  detailedDescription: Ship a static website (html + css) that has a Scoop, and get a grant for ice cream to enjoy! Scoops are made up of groups of three html / css features that add something of value to the website.
+  website: https://swirl.hackclub.com
+  slack: https://hackclub.slack.com/archives/C08FR0LMVHD
+  slackChannel: "#swirl"
+  status: active
 - name: RaspAPI
   description: Make an API get a Raspberry Pi
   detailedDescription: Create an original API using any programming language or framework that you prefer and get a Raspberry Pi Zero 2 W to host it on! The API can be anything you want. The possibilities are endless!
