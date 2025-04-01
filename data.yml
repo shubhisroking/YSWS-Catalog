@@ -7,7 +7,7 @@ limitedTime:
   slack: https://hackclub.slack.com/archives/C02A74Z7G7L
   slackChannel: "#cafe"
   status: ended
-  deadline: '2025-03-03T23:59:59'
+  deadline: '2025-02-17T23:59:59'
 - name: Swirl
   description: Create a quality website with Scoops, get ice cream!
   detailedDescription: Ship a static website (html + css) that has a Scoop, and get a grant for ice cream to enjoy! Scoops are made up of groups of three html / css features that add something of value to the website.
@@ -126,7 +126,7 @@ limitedTime:
   slack: https://hackclub.slack.com/archives/C07N06B1FDY
   slackChannel: "#dessert"
   status: ended
-  deadline: '2025-01-11T23:59:59'
+  deadline: '2025-01-10T23:59:59'
 - name: HackCraft
   description: Create a Minecraft mod, and Hack Club sends you Minecraft Java!
   website: https://hackcraft.hackclub.com/
@@ -169,7 +169,7 @@ limitedTime:
   slack: https://hackclub.slack.com/archives/C083SK3G5D3
   slackChannel: "#hacky-holidays"
   status: ended
-  deadline: '2025-01-30T23:59:59'
+  deadline: '2025-01-31T23:59:59'
 - name: BakeBuild
   description: Design a cookie cutter, get it shipped!
   detailedDescription: "You ship : A CAD model of a cookie cutter, we ship : A 3D printed model of your custom cookie cutter & cookies!"
@@ -290,6 +290,20 @@ drafts:
   slack: https://hackclub.slack.com/archives/C082S5V95G8
   slackChannel: "#hack-rtl"
   status: draft
+- name: Fishin Chips
+  description: Build TTL logic circuits without microcontrollers, get components to make them real!
+  detailedDescription: This is a TTL (transistor-transistor logic) YSWS, which means no microcontrollers will be given! Build fundamental digital electronics like adders, clocks, or even a 4-bit computer. Dream big, but focus on the electronic fundamentals.
+  website:
+  slack: https://hackclub.slack.com/archives/C089UMGEL82
+  slackChannel: "#fishin-chips"
+  status: draft
+- name: PicoJam
+  description: Create a PICO-8 game, get a PICO-8 license for free!
+  detailedDescription: Use PICO-8 Education Edition to build a game with your own assets (art, sound effects, etc). Your game should have a basic goal and at least 2 minutes of gameplay. The top winner will receive a Physical PICO-8 Emulator Device!
+  website:
+  slack: https://hackclub.slack.com/archives/C08CLJ29RA9
+  slackChannel: "#picojam"
+  status: draft
 - name: Hack the Line
   description: Get an Asterisk server running, and we'll send you a VoIP phone.
   website:
@@ -363,6 +377,27 @@ drafts:
   slackChannel: "#pyramid-scheme"
   status: ended
   ended: Ended December 10th
+- name: 15 Days in Public
+  description: Learn, build, or do something everyday for 15 days and post progress reports.
+  website:
+  slack: https://hackclub.slack.com/archives/C045S4393CY
+  slackChannel: "#15-days-in-public"
+  status: ended
+  ended: '2024-03-09T23:59:59'
+- name: Sock
+  description: Collaborate on a project for 10 days, get Hack Club socks!
+  website:
+  slack: https://hackclub.slack.com/archives/C08DPRYMWF8
+  slackChannel: "#sock"
+  status: ended
+  ended: '2024-03-01T23:59:59'
+- name: Easel
+  description: Build a programming language, get fudge.
+  website: https://easel.hackclub.com/orpheus-finds-easel
+  slack: https://hackclub.slack.com/archives/C06T22ZFQGP
+  slackChannel: "#easel"
+  status: ended
+  ended: '2024-06-30T23:59:59'
 - name: Blot
   description: Write code, make art, and get a drawing machine.
   website: https://blot.hackclub.com/
