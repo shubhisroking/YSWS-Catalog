@@ -296,6 +296,66 @@ drafts:
   slack: https://hackclub.slack.com/archives/C08B6PHLADU
   slackChannel: "#hacktheline"
   status: draft
+- name: Constellation
+  description: You ship a self host, full stack website, we ship a Raspberry Pi Zero 2 W to host it on
+  website:
+  slack: https://slack.com/archives/C07TQPAGAMA
+  slackChannel: "#constellation"
+  status: ended
+- name: The Zoo
+  description: You ship an interactive animal themed website, we ship themed stickers and posters for top submissions
+  website:
+  slack: https://slack.com/archives/C08K37F66AK
+  slackChannel: "#the-zoo"
+  status: draft
+- name: Jetsu
+  description: You ship a ML Robot, We ship a Jetson Nano / Jetson Orin Nano
+  website:
+  slack: https://slack.com/archives/C08GPNV0P0W
+  slackChannel: "#jetsu"
+  status: draft
+- name: Lightsaber
+  description: You ship a beat saber map, we ship a(n) <undecided>.
+  website:
+  slack: https://slack.com/archives/C08C8PC40BA
+  slackChannel: "#lightsaber"
+  status: draft
+- name: Turquoise
+  description: You ship a linux distro, we ship a custom Hack Club skirt
+  website:
+  slack: https://slack.com/archives/C08BAEP4SCX
+  slackChannel: "#turquoise"
+  status: draft
+- name: Wetube
+  description: You ship a YouTube channel, we ship points for every video to spend on video equipment!
+  website:
+  slack: https://slack.com/archives/C07U8QM9MEF
+  slackChannel: "#wetube"
+  status: draft
+- name: Mini MIDI Magic
+  description: You ship a custom MIDI Synth/Controller with the firmware, we make it and send it to you!
+  website:
+  slack: https://slack.com/archives/C081ZV47Z8D
+  slackChannel: "#mini-midi-magic"
+  status: draft
+- name: Glyphic
+  description: You Ship a cool and advanced Manim animation visualizing something, We Ship a Lamy Safari Fountain Pen
+  website:
+  slack: https://slack.com/archives/C087E2VDBL3
+  slackChannel: "#glyphic"
+  status: draft
+- name: Pridehaj
+  description: You ship a pride themed website, we ship a blahaj
+  website:
+  slack: https://slack.com/archives/C08BL0ELHLJ
+  slackChannel: "#pridehaj"
+  status: draft
+- name: Hackdrive YSWS
+  description: You ship a cool filesystem/something using FUSE, we ship a Hack Club branded flash drive
+  website:
+  slack: https://slack.com/archives/C08EDPJ544E
+  slackChannel: "#hackdrive-ysws"
+  status: draft
 - name: Pyramid Scheme
   description: Put up Hack Club posters to earn prizes.
   website:
@@ -309,7 +369,7 @@ drafts:
   slack: https://hackclub.slack.com/archives/C04GCH8A91D
   slackChannel: "#blot"
   status: ended
-  ended: Ended November 21st
+  ended: '2024-11-23T23:59:59'
   participants: 192
 - name: Boba Manor
   description: Website building with rewards.
@@ -355,6 +415,7 @@ drafts:
   slack: https://hackclub.slack.com/archives/C01G6UJT2RM
   slackChannel: "#hamradio"
   status: ended
+  ended: '2024-05-31T23:59:59'
   participants: 14
 - name: Trick or Trace
   description: Design a PCB this October, vote on the best designs, get a second grant.
@@ -369,6 +430,7 @@ drafts:
   slack: https://hackclub.slack.com/archives/C07V5401VMY
   slackChannel: "#anchor"
   status: ended
+  ended: '2025-01-27T23:59:59'
   participants: 40
 - name: High Seas
   description: Work on projects, earn doubloons, and compete in the Wonderdome.
