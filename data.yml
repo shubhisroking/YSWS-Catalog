@@ -254,7 +254,7 @@ drafts:
   slack: https://hackclub.slack.com/archives/C078GBDKC03
   slackChannel: "#forge-updates"
   status: draft
-- name: Vine YSWS
+- name: Vine
   description: Create a song using open-source music software and receive a vinyl with your song.
   website: https://vineysws.vercel.app/
   slack: https://hackclub.slack.com/archives/C07N0VA3YGJ
@@ -272,7 +272,7 @@ drafts:
   slack: https://hackclub.slack.com/archives/C07RNEJ13LJ
   slackChannel: "#lightup-ysws"
   status: draft
-- name: Aether YSWS
+- name: Aether
   description: Build a Windows app, and Hack Club provides a Microsoft Store developer account.
   website:
   slack: https://hackclub.slack.com/archives/C07V78URSGL
@@ -284,11 +284,11 @@ drafts:
   slack: https://hackclub.slack.com/archives/C079G5MKC93
   slackChannel: "#onward"
   status: draft
-- name: Hack RTL
+- name: Waveband
   description: Create a desktop app using RTL-SDR, and Hack Club sends you a dongle.
   website: https://hack-rtl.vercel.app/
   slack: https://hackclub.slack.com/archives/C082S5V95G8
-  slackChannel: "#hack-rtl"
+  slackChannel: "#waveband"
   status: draft
 - name: Fishin Chips
   description: Build TTL logic circuits without microcontrollers, get components to make them real!
@@ -364,7 +364,7 @@ drafts:
   slack: https://slack.com/archives/C08BL0ELHLJ
   slackChannel: "#pridehaj"
   status: draft
-- name: Hackdrive YSWS
+- name: Hackdrive
   description: You ship a cool filesystem/something using FUSE, we ship a Hack Club branded flash drive
   website:
   slack: https://slack.com/archives/C08EDPJ544E
