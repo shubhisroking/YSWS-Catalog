@@ -383,14 +383,14 @@ drafts:
   slack: https://hackclub.slack.com/archives/C045S4393CY
   slackChannel: "#15-days-in-public"
   status: ended
-  ended: '2024-03-09T23:59:59'
+  ended: '2025-03-09T23:59:59'
 - name: Sock
   description: Collaborate on a project for 10 days, get Hack Club socks!
   website:
   slack: https://hackclub.slack.com/archives/C08DPRYMWF8
   slackChannel: "#sock"
   status: ended
-  ended: '2024-03-01T23:59:59'
+  ended: '2025-03-01T23:59:59'
 - name: Easel
   description: Build a programming language, get fudge.
   website: https://easel.hackclub.com/orpheus-finds-easel
