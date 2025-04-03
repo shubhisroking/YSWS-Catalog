@@ -201,6 +201,13 @@ limitedTime:
   status: active
   deadline: Summer of 2025
   participants: 34
+- name: 10 Days of Tarot
+  description: Build a project or feature and get exclusive prizes for each card requirement you hit.
+  website: https://tarot.hackclub.com/
+  slack: https://slack.com/archives/C08L60RUQ92
+  slackChannel: "#10-days-of-tarot"
+  status: active
+  deadline: '2025-04-13T23:59:59'
 indefinite:
 - name: Sprig
   description: Build a JS game and play it on your own console.
@@ -376,6 +383,12 @@ drafts:
   website:
   slack: https://slack.com/archives/C08EDPJ544E
   slackChannel: "#hackdrive-ysws"
+  status: draft
+- name: Hackmouse
+  description: Design a PCB & case for a mouse and get the parts shipped to you.
+  website:
+  slack: https://slack.com/archives/C08JYC7RQT1
+  slackChannel: "#hackmouse"
   status: draft
 - name: Pyramid Scheme
   description: Put up Hack Club posters to earn prizes.
