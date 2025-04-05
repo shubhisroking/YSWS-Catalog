@@ -338,10 +338,23 @@ drafts:
   status: draft
 - name: Jetsu
   description: You ship a ML Robot, We ship a Jetson Nano / Jetson Orin Nano
-  website:
+  detailedDescription: |
+    Event Dates: 1st June to 31st July
+    Participants will receive the necessary funding to build their robots.
+    Before funding, participants must:
+      - Submit a Bill of Materials (BOM) listing the expected components.
+      - Submit their initial machine learning project on GitHub with a well-documented README.
+    Machine learning models will be developed on laptops to control the robots.
+    Coding activity will be tracked using WakaTime.
+    Participants must log their work hours in a detailed project journal.
+    Rewards & Incentives:
+      - All participants who successfully complete the project will receive a Jetson Nano Developer Kit (4GB).
+      - Those who invest 100+ hours will be rewarded with a NVIDIA Jetson Orin (8GB).
+  website: https://jetsu.vercel.app
   slack: https://slack.com/archives/C08GPNV0P0W
   slackChannel: "#jetsu"
   status: draft
+  deadline: '2025-07-31T23:59:59'
 - name: Lightsaber
   description: You ship a beat saber map, we ship a(n) <undecided>.
   website:
