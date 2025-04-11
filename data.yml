@@ -8,13 +8,6 @@ limitedTime:
   slackChannel: "#cafe"
   status: ended
   deadline: '2025-02-17T23:59:59'
-- name: Swirl
-  description: Create a quality website with Scoops, get ice cream!
-  detailedDescription: Ship a static website (html + css) that has a Scoop, and get a grant for ice cream to enjoy! Scoops are made up of groups of three html / css features that add something of value to the website.
-  website: https://swirl.hackclub.com
-  slack: https://hackclub.slack.com/archives/C08FR0LMVHD
-  slackChannel: "#swirl"
-  status: active
 - name: RaspAPI
   description: Make an API get a Raspberry Pi
   detailedDescription: Create an original API using any programming language or framework that you prefer and get a Raspberry Pi Zero 2 W to host it on! The API can be anything you want. The possibilities are endless!
@@ -223,12 +216,6 @@ indefinite:
   slackChannel: "#electronics"
   status: active
   participants: 604
-- name: OnBoard Live
-  description: Design a PCB live on YouTube for $5/hour PCB credit.
-  website:
-  slack: https://hackclub.slack.com/archives/C07F3EA2L8G
-  slackChannel: "#onboard-live"
-  status: active
 - name: Boba Drops
   description: Build a website and get boba!
   website: https://boba.hackclub.com/
@@ -236,6 +223,20 @@ indefinite:
   slackChannel: "#boba"
   status: active
   participants: 1253
+- name: Swirl
+  description: Create a quality website with Scoops, get ice cream!
+  detailedDescription: Ship a static website (html + css) that has a Scoop, and get a grant for ice cream to enjoy! Scoops are made up of groups of three html / css features that add something of value to the website.
+  website: https://swirl.hackclub.com
+  slack: https://hackclub.slack.com/archives/C08FR0LMVHD
+  slackChannel: "#swirl"
+  status: active
+  participants: 40
+- name: OnBoard Live
+  description: Design a PCB live on YouTube for $5/hour PCB credit.
+  website:
+  slack: https://hackclub.slack.com/archives/C07F3EA2L8G
+  slackChannel: "#onboard-live"
+  status: active
 drafts:
 - name: Reef
   description: Ship a deep learning project (AI/ML/LLM/NN), get a custom coral based accelerator.
