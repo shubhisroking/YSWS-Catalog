@@ -370,7 +370,7 @@ drafts:
   status: draft
 - name: Wetube
   description: You ship a YouTube channel, we ship points for every video to spend on video equipment!
-  website:
+  website: https://wetubeysws.vercel.app/
   slack: https://slack.com/archives/C07U8QM9MEF
   slackChannel: "#wetube"
   status: draft
