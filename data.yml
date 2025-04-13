@@ -70,13 +70,13 @@ limitedTime:
   status: active
   deadline: '2025-04-01T23:59:59'
 - name: Infill
-  description: Design your own 3D printer, get the parts shipped to you. Get it printing, get flown to a 3D printing festival in Colorado!
+  description: Design your own 3D printer mod, get $20 to build it!
   website: https://github.com/hackclub/infill
   slack: https://hackclub.slack.com/archives/C08B7LF58TX
   slackChannel: "#infill"
   status: active
-  deadline: '2025-05-04T23:59:59'
-  participants: 161
+  deadline: '2025-04-20T23:59:59'
+  participants: 380
 - name: Visioneer
   description: Give your computer the gift of vision, get an esp32-s3-eye to see it through!
   website: https://visioneer.hackclub.com
